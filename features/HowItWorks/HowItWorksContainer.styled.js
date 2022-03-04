@@ -36,7 +36,7 @@ export const ImgWrapper = styled.div`
 export const BgImg = styled.div`
     width: 903px;
     height: 407px;
-    background: #FFB64F;
+    background-color: ${({theme})=>theme.colors.orange};
     box-shadow: 0px 3px 8px -2px rgba(0, 0, 0, 0.2);
     border-radius: 100px;
     transform: rotate(-170.57deg);
