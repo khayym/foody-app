@@ -1,11 +1,14 @@
 import { ListItem, ListItemButton, ListItemText, ListItemAvatar, Avatar } from '@mui/material';
 import { ListWrapper } from './List.styled'
+import useSWR from 'swr';
 
-const List = ({big}) => {
+const List = ({ big }) => {
+    const fetcher = (...args) => fetch(...args).then(res => res.json())
+    const { data, error } = useSWR('https://jsonplaceholder.typicode.com/posts', fetcher)
     return (
         <>
             <ListWrapper big={big} dense sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-                {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map((value) => {
+                {data && data.map((value) => {
                     const labelId = `checkbox-list-secondary-label-${value}`;
                     return (
                         <ListItem
@@ -19,7 +22,7 @@ const List = ({big}) => {
                                         src={`/images/pizza.jpg/`}
                                     />
                                 </ListItemAvatar>
-                                <ListItemText id={labelId} primary={`Line item ${value + 1}`} />
+                                <ListItemText id={labelId} primary={`Line item ${value.id}`} />
                             </ListItemButton>
                         </ListItem>
                     );
