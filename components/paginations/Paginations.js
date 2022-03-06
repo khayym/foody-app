@@ -1,12 +1,18 @@
-import Pagination from '@mui/material/Pagination';
 import { CustomStack, PaginationCustom } from './Paginations.styled'
 
-export const Paginations = () => {
+export const Paginations = ({ postsPerPage, page, handleChange }) => {
+
+
     return (
         <>
             <CustomStack>
                 <PaginationCustom
-                    count={10}
+                    count={postsPerPage}
+                    page={page}
+                    onChange={handleChange}
+                    variant="outlined"
+                    defaultPage={2}
+                    siblingCount={0}
                 />
             </CustomStack>
         </>

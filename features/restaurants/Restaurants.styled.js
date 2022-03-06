@@ -7,11 +7,14 @@ background-color: ${({ theme }) => theme.colors.whiteLight1};
 height: 898px; 
 overflow-y:auto;
 `
-export const ItemCardWrapper = styled(Stack).attrs(()=>({
+export const ItemCardWrapper = styled(Stack).attrs(() => ({
     direction: "row",
 }))`
 display: flex;
 flex-wrap: wrap;
 width:100%;
 justify-content:center;
+@media(max-width:575.9px){
+    justify-content:space-evenly;
+    }
 `

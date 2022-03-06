@@ -8,8 +8,22 @@ import ItemCard from './component/ItemCard';
 import Paginations from '../../components/paginations';
 import RestaurantList from './component/RestaurantList';
 import RestaurantListMobile from './component/RestaurantListMobile';
-
+import useSWR from 'swr';
+import { useState } from 'react';
 const Restaurant = () => {
+    const fetcher = (...args) => fetch(...args).then(res => res.json())
+    const { data, error } = useSWR('https://jsonplaceholder.typicode.com/posts', fetcher)
+
+    const [page, setPage] = useState(1);
+    const postsPerPage = Math.ceil(data && data.length / 13);
+    const indexOfLastPost = page * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const currentPosts = data && data.slice(indexOfFirstPost, indexOfLastPost)
+
+    const handleChange = (event, value) => {
+        setPage(value);
+    };
+    
     return (
         <>
             <Head>
@@ -23,19 +37,11 @@ const Restaurant = () => {
                     </Grid>
 
                     <Grid item lg={10} md={9} sm={12}>
-                        <RestaurantListMobile/>
+                        <RestaurantListMobile />
                         <ItemCardWrapper>
-                            <ItemCard />
-                            <ItemCard />
-                            <ItemCard />
-                            <ItemCard />
-                            <ItemCard />
-                            <ItemCard />
-                            <ItemCard />
-                            <ItemCard />
+                            <ItemCard data={currentPosts} />
                         </ItemCardWrapper>
-                        
-                        <Paginations />
+                        <Paginations postsPerPage={postsPerPage} page={page} handleChange={handleChange} />
                     </Grid>
                 </Grid>
 
