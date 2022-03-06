@@ -1,8 +1,9 @@
 import { Wrapper, Wrap, BgCard, Text, Title, Desc } from './AboutUs.styled'
 import Head from 'next/head';
-import dynamic from 'next/dynamic';
 import { Grid } from '@mui/material';
 import AboutCard from '../../components/aboutCard/AboutCard';
+
+import dynamic from 'next/dynamic';
 const Layout = dynamic(() => import('../../components/Layout'))
 
 const AboutUs = () => {
