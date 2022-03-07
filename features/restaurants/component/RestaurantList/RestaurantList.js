@@ -1,5 +1,5 @@
 import { ListItem, ListItemButton, ListItemText, ListItemAvatar, Avatar } from '@mui/material';
-import List from '../../../../components/List';
+import List from '../../../../share/components/List';
 import { ListWrapper } from './RestaurantList.styled'
 
 const RestaurantList = () => {

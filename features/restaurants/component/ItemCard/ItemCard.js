@@ -1,6 +1,6 @@
 import { ItemWrapper, ItemBadge, ImgWrapper, ContentWrapper, Title, AboutItem, Desc, Price} from './ItemCard.styled'
 import Image from 'next/image';
-import { ButtonWrap } from '../../../../components/Button/Button.styled';
+import { ButtonWrap } from '../../../../share/components/Button/Button.styled';
 
 
 const ItemCard = ({ data }) => {

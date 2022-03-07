@@ -11,7 +11,7 @@ import Typography from '@mui/material/Typography';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 
 import Image from 'next/image';
-import List from '../../../../components/List';
+import List from '../../../../share/components/List';
 import { RootWrapper,BtnText } from './RestaurantListMobile.styled';
 
 const drawerBleeding = 56;

@@ -1,11 +1,11 @@
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
-const Layout = dynamic(() => import('../../components/Layout'));
+const Layout = dynamic(() => import('../../share/components/Layout'));
 
 import { Grid } from '@mui/material';
 import { ItemCardWrapper } from './Restaurants.styled'
 import ItemCard from './component/ItemCard';
-import Paginations from '../../components/paginations';
+import Paginations from '../../share/components/paginations';
 import RestaurantList from './component/RestaurantList';
 import RestaurantListMobile from './component/RestaurantListMobile';
 import useSWR from 'swr';
@@ -23,7 +23,7 @@ const Restaurant = () => {
     const handleChange = (event, value) => {
         setPage(value);
     };
-    
+
     return (
         <>
             <Head>
@@ -44,7 +44,6 @@ const Restaurant = () => {
                         <Paginations postsPerPage={postsPerPage} page={page} handleChange={handleChange} />
                     </Grid>
                 </Grid>
-
             </Layout>
         </>
     );
