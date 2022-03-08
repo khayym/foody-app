@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Wrapper, Wrap, ImageWrap, ContentWrap, Title, Desc } from './Card.syled'
-const Card = () => {
+const Card = ({title,desc}) => {
     return (
         <>
             <Wrap>
@@ -9,8 +9,8 @@ const Card = () => {
                         <Image src='/images/burger.svg' width='239' height='239' />
                     </ImageWrap>
                     <ContentWrap>
-                        <Title>Discount Boucher</Title>
-                        <Desc>Lorem ipsum is placeholder  commonly used in the graphic </Desc>
+                        <Title>{title}</Title>
+                        <Desc>{desc}</Desc>
                     </ContentWrap>
                 </Wrapper>
             </Wrap>
