@@ -4,7 +4,7 @@ import MiniCard from '../MiniCard';
 import { ButtonWrap } from "../../../../share/components/Button/Button.styled";
 import {
     Wrap, ContentWrapper, Title, Desc, BtnWrapper, ImageWrapper, TopImage,
-    Features, FeatureContent, FeaturTitle, FeaturDesc,FeatureCard,Text
+    Features, FeatureContent, FeaturTitle, FeaturDesc, FeatureCard, Text
 } from './HomeContainer.styled';
 import Card from '../../../../share/components/card/Card';
 
@@ -37,14 +37,49 @@ const HomeContainer = () => {
                     <FeaturTitle>Features</FeaturTitle>
                     <FeaturDesc>
                         <Text>
-                        Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups
+                            Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups
                         </Text>
                     </FeaturDesc>
                 </FeatureContent>
                 <FeatureCard>
-                    <Card />
-                    <Card />
-                    <Card />
+                    <Card
+                        title="Discount Boucher"
+                        desc="Lorem ipsum is placeholder  commonly used in the graphic"
+                    />
+                    <Card
+                        title="Fresh healthy Food"
+                        desc="Lorem ipsum is placeholder  commonly used in the graphic"
+                    />
+                    <Card
+                        title="Fast Home Delivery"
+                        desc="Lorem ipsum is placeholder  commonly used in the graphic"
+                    />
+                </FeatureCard>
+            </Features>
+
+            <Features>
+                <FeatureContent>
+                    <FeaturTitle>Our Popular Update New Foods</FeaturTitle>
+                    <FeaturDesc>
+                        <Text>
+                            Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups
+                        </Text>
+                    </FeaturDesc>
+                </FeatureContent>
+                <FeatureCard>
+                    <Card 
+                    
+                    title="Dubble Chees"  
+                    desc="Lorem ipsum is placeholder  commonly used in the graphic"
+                  />
+                    <Card 
+                    title="Margarita"
+                    desc="Lorem ipsum is placeholder  commonly used in the graphic"
+                    />
+                    <Card 
+                    title="Twister Menu" 
+                    desc="Lorem ipsum is placeholder  commonly used in the graphic"
+                    />
                 </FeatureCard>
             </Features>
         </>
