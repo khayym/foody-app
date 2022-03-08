@@ -2,7 +2,11 @@ import Grid from '@mui/material/Grid';
 import MiniCard from '../MiniCard';
 
 import { ButtonWrap } from "../../../../share/components/Button/Button.styled";
-import { Wrap, ContentWrapper, Title, Desc, BtnWrapper, ImageWrapper, TopImage } from './HomeContainer.styled';
+import {
+    Wrap, ContentWrapper, Title, Desc, BtnWrapper, ImageWrapper, TopImage,
+    Features, FeatureContent, FeaturTitle, FeaturDesc,FeatureCard,Text
+} from './HomeContainer.styled';
+import Card from '../../../../share/components/card/Card';
 
 const HomeContainer = () => {
     return (
@@ -28,6 +32,21 @@ const HomeContainer = () => {
                     </ImageWrapper>
                 </Grid>
             </Wrap>
+            <Features>
+                <FeatureContent>
+                    <FeaturTitle>Features</FeaturTitle>
+                    <FeaturDesc>
+                        <Text>
+                        Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups
+                        </Text>
+                    </FeaturDesc>
+                </FeatureContent>
+                <FeatureCard>
+                    <Card />
+                    <Card />
+                    <Card />
+                </FeatureCard>
+            </Features>
         </>
     );
 
