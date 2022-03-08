@@ -68,6 +68,7 @@ const HomeContainer = () => {
                 </FeatureContent>
                 <FeatureCard>
                     <Card 
+                    
                     title="Dubble Chees"  
                     desc="Lorem ipsum is placeholder  commonly used in the graphic"
                   />
