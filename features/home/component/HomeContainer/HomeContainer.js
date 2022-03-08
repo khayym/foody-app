@@ -4,9 +4,11 @@ import MiniCard from '../MiniCard';
 import { ButtonWrap } from "../../../../share/components/Button/Button.styled";
 import {
     Wrap, ContentWrapper, Title, Desc, BtnWrapper, ImageWrapper, TopImage,
-    Features, FeatureContent, FeaturTitle, FeaturDesc, FeatureCard, Text
+    Features, FeatureContent, FeaturTitle, FeaturDesc, FeatureCard, Text,
+    ProductWrapper
 } from './HomeContainer.styled';
 import Card from '../../../../share/components/card/Card';
+import HomeProduct from '../HomeProduct/HomeProduct';
 
 const HomeContainer = () => {
     return (
@@ -32,6 +34,7 @@ const HomeContainer = () => {
                     </ImageWrapper>
                 </Grid>
             </Wrap>
+
             <Features>
                 <FeatureContent>
                     <FeaturTitle>Features</FeaturTitle>
@@ -67,21 +70,34 @@ const HomeContainer = () => {
                     </FeaturDesc>
                 </FeatureContent>
                 <FeatureCard>
-                    <Card 
-                    
-                    title="Dubble Chees"  
-                    desc="Lorem ipsum is placeholder  commonly used in the graphic"
-                  />
-                    <Card 
-                    title="Margarita"
-                    desc="Lorem ipsum is placeholder  commonly used in the graphic"
+                    <Card
+                        title="Dubble Chees"
+                        desc="Lorem ipsum is placeholder  commonly used in the graphic"
                     />
-                    <Card 
-                    title="Twister Menu" 
-                    desc="Lorem ipsum is placeholder  commonly used in the graphic"
+                    <Card
+                        title="Margarita"
+                        desc="Lorem ipsum is placeholder  commonly used in the graphic"
+                    />
+                    <Card
+                        title="Twister Menu"
+                        desc="Lorem ipsum is placeholder  commonly used in the graphic"
                     />
                 </FeatureCard>
             </Features>
+
+            <ProductWrapper>
+                <HomeProduct
+                    title='Menu That Always Make You Fall In Love'
+                    desc='Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.' />
+                <HomeProduct
+                    order='2'
+                    title='Yummy Always Papa John’s Pizza.Agree?'
+                    desc='Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.' />
+                <HomeProduct
+                    title='Do You Like French Fries? Mmm...'
+                    desc='Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.' />
+            </ProductWrapper>
+
         </>
     );
 
