@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { Stack } from '@mui/material';
 import Image from 'next/image';
+import { css } from "styled-components";
 
 export const Wrap = styled.div`
 padding:40px 10px 40px 20px;
@@ -82,6 +83,12 @@ object-fit: cover;
 
 export const Features = styled.div`
 padding: 60px 0px;
+${({ h }) => css`
+    margin-bottom:${h ? '280px' : '0'} !important;
+@media (max-width: 765.9px) {
+    margin-bottom:${h ? '0px' : '280px'} !important;
+}
+ `}
 `
 export const FeatureContent = styled.div`
 text-align: center;

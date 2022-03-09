@@ -1,4 +1,5 @@
 import Container from '@mui/material/Container';
+import Footer from '../Footer/FooterPage';
 const Layout = ({ children }) => {
     return (
         <>
@@ -7,8 +8,8 @@ const Layout = ({ children }) => {
                 {/* <Main> */}
                 {children}
                 {/* </Main> */}
+                <Footer />
             </Container>
-
         </>
     );
 };
