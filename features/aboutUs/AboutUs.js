@@ -16,13 +16,13 @@ const AboutUs = () => {
             <Layout>
                 <Wrapper>
                     <Grid container >
-                        <Grid item xs={12} md={12} lg={4}>
+                        <Grid xs={12} md={12} lg={4}>
                             <Text>
                                 <Title>About Us</Title>
                                 <Desc>Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</Desc>
                             </Text>
                         </Grid>
-                        <Grid item xs={12} md={12} lg={8}>
+                        <Grid xs={12} md={12} lg={8}>
                             <Wrap>
                                 <BgCard>
                                     <AboutCard top="0" left="0" />
