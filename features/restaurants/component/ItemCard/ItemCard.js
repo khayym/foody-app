@@ -1,4 +1,4 @@
-import { ItemWrapper, ItemBadge, ImgWrapper, ContentWrapper, Title, AboutItem, Desc, Price} from './ItemCard.styled'
+import { ItemWrapper, ItemBadge, ImgWrapper, ContentWrapper, Title, AboutItem, Desc, Price } from './ItemCard.styled'
 import Image from 'next/image';
 import { ButtonWrap } from '../../../../share/components/Button/Button.styled';
 
@@ -10,7 +10,7 @@ const ItemCard = ({ data }) => {
                 <ItemWrapper key={i.id}>
                     <ItemBadge>New</ItemBadge>
                     <ImgWrapper>
-                        <Image width='174px' height='160px' src='/images/pizza.jpg' />
+                        <Image width='174px' height='160px' src='/images/pizza.jpg' alt='Pizza' />
                     </ImgWrapper>
                     <ContentWrapper>
                         <Title>Burger {i.id}</Title>
