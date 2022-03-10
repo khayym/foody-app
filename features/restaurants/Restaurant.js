@@ -32,11 +32,11 @@ const Restaurant = () => {
             </Head>
             <Layout>
                 <Grid container spacing={2} mt={5}>
-                    <Grid item lg={2} md={3} sm={12}>
+                    <Grid  lg={2} md={3} sm={12}>
                         <RestaurantList />
                     </Grid>
 
-                    <Grid item lg={10} md={9} sm={12}>
+                    <Grid  lg={10} md={9} sm={12}>
                         <RestaurantListMobile />
                         <ItemCardWrapper>
                             <ItemCard data={currentPosts} />
