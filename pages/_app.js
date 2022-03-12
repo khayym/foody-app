@@ -20,7 +20,7 @@ export default MyApp
 
 
 const AppContainer = styled.div`
-  margin:1rem;
+  /* margin:1rem; */
   
   @media (max-width:756px) {
     margin:0;

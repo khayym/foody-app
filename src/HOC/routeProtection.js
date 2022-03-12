@@ -2,7 +2,6 @@ import { useAuth } from "../context/AuthContext";
 import { useRouter } from 'next/router';
 import { useEffect } from "react";
 
-
 export const withPublic = (WrappedComponent) => {
     return (props) => {
         const router = useRouter();
@@ -10,7 +9,7 @@ export const withPublic = (WrappedComponent) => {
 
         useEffect(() => {
             if (user) {
-                router.push("/");
+                router.replace("/");
                 return null;
             }
         }, [user, router]);

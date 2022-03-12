@@ -1,21 +1,27 @@
 import Container from '@mui/material/Container';
 import styled from 'styled-components'
+import Header from '../Header'
+import Footer from '../Footer'
 const Layout = ({ children }) => {
     return (
         <>
-            <StyledLayoutComponent maxWidth="xl" >
-                {/* <Header /> */}
-                {/* <Main> */}
+
+            <StyledLayoutComponent>
+                <Header />
                 {children}
-                {/* </Main> */}
             </StyledLayoutComponent>
+            <Footer />
         </>
     );
 };
 
 export default Layout;
 
-const StyledLayoutComponent = styled(Container)`
+const StyledLayoutComponent = styled.div`
     width:100%;
-    padding:0 !important;
+    padding:1rem 1rem 0 1rem !important;
+
+    @media(max-width:756px){
+        padding:0 !important;
+    }
 `

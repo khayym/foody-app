@@ -126,7 +126,8 @@ margin-top: 20px;
 flex-wrap:wrap;
 `
 
-export const ProductWrapper = styled.div``
+export const ProductWrapper = styled.div`
+`
 
 export const BtnWrapper = styled(Stack).attrs(() => ({
     spacing: 3,

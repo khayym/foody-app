@@ -3,13 +3,19 @@ import Image from 'next/image';
 import { Grid } from '@material-ui/core';
 import { css } from "styled-components";
 
-export const ContentWrapper = styled.div``
+export const ContentWrapper = styled.div`
+/* display:flex;
+align-items:center;
+justify-content: center;
+flex-direction:column; */
+`
 
 
 export const Title = styled.h4`
 font-weight: 900;
 font-size: 50px;
 margin: 0;
+/* width:653px; */
 @media (max-width: 767.9px) {
     font-size: 25px;
 }
@@ -18,6 +24,7 @@ margin: 0;
 export const Desc = styled.p`
 font-size: 22px;
 line-height: 30px;
+text-align: left;
 color: ${({ theme }) => theme.colors.grayText1};
 width: 80%;
 @media (max-width: 991.9px) {
@@ -56,19 +63,20 @@ export const Split = styled(Grid).attrs(() => ({
     lg: 6,
     md: 6
 }))
-`
+    `
 ${({ order }) => css`
     order:${order ? '2' : '1'} !important;
 @media (max-width: 767.9px) {
     order:${order ? '1' : '2'} !important;
 }
  `}
+ 
 `
 
 export const ImgWrapper = styled.div`
 position: relative;
 display: flex;
-justify-content: center;
+justify-content:center;
 align-items: center;
 @media (max-width: 991.9px) {
     padding: 50px 0px 0px 0px ;

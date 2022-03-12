@@ -7,7 +7,8 @@ const HomeProduct = ({ title, desc, order }) => {
                 <Grid container
                     direction="row"
                     justifyContent="center"
-                    alignItems="center" >
+                    alignItems="center"
+                >
                     <Split order={order}>
                         <ContentWrapper>
                             <Title>{title}</Title>

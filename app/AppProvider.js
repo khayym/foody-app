@@ -5,20 +5,23 @@ import GlobalStyle from "../styles/global";
 // import { store } from "../store";
 import Layout from "../share/components/Layout"
 import { Header } from "../share/components/Header/Header"
+import { Provider } from 'react-redux'
+import { store } from "../share/store";
+
 
 const AppProvider = ({ children }) => {
 
 
     return (
-        // <Provider store={store}>
-        <ThemeProvider theme={theme}>
-            <GlobalStyle />
-            <Header />
-            <Layout>
-                {children}
-            </Layout>
-        </ThemeProvider >
-        // </Provider>
+        <Provider store={store}>
+            <ThemeProvider theme={theme}>
+                <GlobalStyle />
+                {/* <Header /> */}
+                <Layout>
+                    {children}
+                </Layout>
+            </ThemeProvider >
+        </Provider>
     )
 }
 export default AppProvider

@@ -1,96 +1,95 @@
-import AppBar from '@mui/material/AppBar';
+import React from 'react'
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
 import MenuIcon from '@mui/icons-material/Menu';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import MenuItem from '@mui/material/MenuItem';
-import Menu from '@mui/material/Menu';
-import { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import { useAuth } from '../../../src/context/AuthContext';
+import Avatar from '@mui/material/Avatar';
+import { useDispatch } from 'react-redux';
+import { AppBarStyled, ContainerStyled, ToolBarStyled, Ul } from './Header.Styled'
+import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useAuth } from '../../../src/context/AuthContext';
+import { CustomDrawer } from '../Drawer/Drawer';
+import { drawer } from '../../store/slices/drawer/drawerSlices';
 
-export const Header = () => {
-    const { user, logout } = useAuth();
-    console.log(user);
-    const [anchorEl, setAnchorEl] = useState(null);
-    const navigation = useRouter();
-    const handleMenu = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
+export const ResponsiveAppBar = () => {
 
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
+    const dispatch = useDispatch();
 
-    useEffect(() => {
-        console.log('isledi');
-    }, [user, navigation])
+    const location = useRouter();
+    const { logout } = useAuth();
 
     return (
-        <Box sx={{ flexGrow: 1 }}>
-            <StyledHeader position="static" nav={navigation.pathname}>
-                <Toolbar>
-                    <IconButton
-                        size="large"
-                        edge="start"
-                        color="inherit"
-                        aria-label="menu"
-                        sx={{ mr: 2 }}
+        <AppBarStyled position="static" className='CustomNavBar' location={location.pathname}>
+            <ContainerStyled>
+                <CustomDrawer />
+                <ToolBarStyled disableGutters>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+                        <IconButton
+                            size="large"
+                            aria-label="account of current user"
+                            aria-controls="menu-appbar"
+                            aria-haspopup="true"
+                            onClick={() => dispatch(drawer())}
+                            color="inherit"
+                        >
+                            <MenuIcon />
+                        </IconButton>
+                    </Box>
+                    <Typography
+                        variant="h6"
+                        noWrap
+                        component="div"
+                        sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
                     >
-                        <MenuIcon />
-                    </IconButton>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        Photos
+                        <Image src={"/images/logo.svg"} alt="" width="130" height="30" />
                     </Typography>
-                    {user && (
-                        <div>
-                            <IconButton
-                                size="large"
-                                aria-label="account of current user"
-                                aria-controls="menu-appbar"
-                                aria-haspopup="true"
-                                onClick={handleMenu}
-                                color="inherit"
-                            >
-                                <AccountCircle />
-                            </IconButton>
-                            <Menu
-                                id="menu-appbar"
-                                anchorEl={anchorEl}
-                                anchorOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'right',
-                                }}
-                                keepMounted
-                                transformOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'right',
-                                }}
-                                open={Boolean(anchorEl)}
-                                onClose={handleClose}
-                            >
-                                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                                <MenuItem onClick={logout}>My account</MenuItem>
-                            </Menu>
-                        </div>
-                    )}
-                </Toolbar>
-            </StyledHeader>
-        </Box>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                        <Image src={"/images/logo.svg"} alt="" width="130" height="30" />
+                        <Ul>
+                            <li>
+                                <Link href="/">
+                                    <a>Home</a>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/restaurants">
+                                    <a>Restaurants</a>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/about-us">
+                                    <a>About us</a>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/how-it-work">
+                                    <a>How it works</a>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/">
+                                    <a>FAQs</a>
+                                </Link>
+                            </li>
+                        </Ul>
+                    </Box>
+
+                    <Box sx={{ flexGrow: 0, flexDirection: 'row' }}>
+                        {/* <Tooltip title="Open settings"> */}
+                        <IconButton sx={{ p: 1 }}>
+                            {/* <AddButton /> */}
+                            <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                        </IconButton>
+                        <IconButton sx={{ p: 1 }}>
+                            {/* <AddButton /> */}
+                            <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                        </IconButton>
+                        {/* </Tooltip> */}
+                    </Box>
+                </ToolBarStyled>
+            </ContainerStyled>
+        </AppBarStyled >
     );
-}
-
-
-const StyledHeader = styled(AppBar)`
-height:7rem;
-background-color: ${({ theme, nav }) => nav === '/login' || nav === '/register' ? theme.colors.lightRed : theme.colors.whiteLight1} !important;
-box-shadow:none !important;
-
-@media(max-width:47.25rem) {
-    height:3.75rem;
-}
-`
-
+};
