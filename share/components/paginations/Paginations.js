@@ -11,11 +11,9 @@ export const Paginations = ({ postsPerPage, page, handleChange }) => {
                     page={page}
                     onChange={handleChange}
                     variant="outlined"
-                    defaultPage={2}
                     siblingCount={0}
                 />
             </CustomStack>
         </>
     );
 };
-

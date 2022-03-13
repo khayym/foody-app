@@ -26,10 +26,6 @@ font-size: 22px;
 line-height: 30px;
 text-align: left;
 color: ${({ theme }) => theme.colors.grayText1};
-width: 80%;
-@media (max-width: 991.9px) {
-    width: 100%;
-}
 @media (max-width: 767.9px) {
    font-size: 16px;
 }
@@ -87,7 +83,14 @@ export const Wrap = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
-padding: 90px 0px 120px 0px;
+padding: 90px 70px 120px 70px;
+
+@media (max-width: 1299.9px) and (min-width: 959.9px)  {
+    padding: 90px 30px 120px 30px;
+}
+@media (max-width: 575.9px) {
+    padding: 90px 20px 120px 20px;
+    }
 `
 
 export const CustomImage = styled(Image).attrs(() => ({

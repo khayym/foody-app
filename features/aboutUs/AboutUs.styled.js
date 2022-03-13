@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-padding: 70px 0px 0px 0px;
+padding: 70px 20px 100px 20px;
 `
 
 export const Wrap = styled.div`
@@ -28,6 +28,7 @@ background-color: ${({ theme }) => theme.colors.orange};
     }
 `
 export const Text = styled.div`
+padding: 0px 0px 0px 25px;
 `
 
 export const Title = styled.h4`

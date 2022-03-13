@@ -7,7 +7,7 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 width: 235px;
 height: 345px;
 padding: 20px;
-margin:0px 10px 30px 10px;
+margin:0px 0px 30px 10px;
 position: relative;
     @media(max-width:541.9px){
     width: 200px;
@@ -35,7 +35,6 @@ align-items: center;
     }
 
 `
-
 export const ItemBadge = styled.span`
 position: absolute;
 top: 0;
