@@ -69,7 +69,7 @@ export const ResponsiveAppBar = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/">
+                                <Link href="/faqs">
                                     <a>FAQs</a>
                                 </Link>
                             </li>

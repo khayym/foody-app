@@ -86,7 +86,7 @@ padding: 60px 0px;
 ${({ h }) => css`
     margin-bottom:${h ? '280px' : '0'} !important;
 @media (max-width: 765.9px) {
-    margin-bottom:${h ? '0px' : '280px'} !important;
+    margin-bottom:${h ? '0px' : '0px'} !important;
 }
  `}
 `
@@ -126,8 +126,7 @@ margin-top: 20px;
 flex-wrap:wrap;
 `
 
-export const ProductWrapper = styled.div`
-`
+export const ProductWrapper = styled.div``
 
 export const BtnWrapper = styled(Stack).attrs(() => ({
     spacing: 3,

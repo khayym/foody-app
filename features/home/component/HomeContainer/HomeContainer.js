@@ -10,13 +10,9 @@ import {
 import Card from '../../../../share/components/card/Card';
 import HomeProduct from '../HomeProduct/HomeProduct';
 
-import dynamic from 'next/dynamic';
-const Layout = dynamic(() => import('../../../../share/components/Layout'))
-
 const HomeContainer = () => {
     return (
         <>
-            {/* <Layout> */}
             <Wrap>
                 <Grid lg={7}>
                     <ContentWrapper>
@@ -101,7 +97,6 @@ const HomeContainer = () => {
                     />
                 </FeatureCard>
             </Features>
-            {/* </Layout> */}
         </>
     );
 

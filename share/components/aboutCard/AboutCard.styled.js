@@ -37,13 +37,11 @@ transform: rotate(335deg);
 @media (max-width:991.9px) {
     transform:rotate(0deg);
 }
-@media (max-width:575.9px) {
-    width: 234px;
+@media (max-width:375.9px) {
+    width: 244px;
     left: -25px;
 }
-@media (max-width:395.9px) {
-    left: -25px;
-}
+
 `
 export const CardImage = styled.div`
 position: absolute;

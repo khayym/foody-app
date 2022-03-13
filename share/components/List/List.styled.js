@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { css } from "styled-components";
 
 export const ListWrapper = styled(List)`
-background-color: ${({ theme }) => theme.colors.whiteLight1};
+background-color: ${({ theme }) => theme.colors.whiteLight1} !important; 
 height: 90vh; 
 overflow-y:auto;
 ${({ big }) => css`
