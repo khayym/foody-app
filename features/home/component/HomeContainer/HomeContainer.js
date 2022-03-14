@@ -29,8 +29,8 @@ const HomeContainer = () => {
                     <ImageWrapper>
                         <TopImage src='/images/burger.svg' alt='burger' width='730' height='750' />
                         <MiniCard left="245" top="-30" />
-                        <MiniCard left="-70" top="165" />
-                        <MiniCard left="245" top="320" />
+                        <MiniCard left="-70" top="300" />
+                        <MiniCard left="245" top="410" />
                     </ImageWrapper>
                 </Grid>
             </Wrap>
