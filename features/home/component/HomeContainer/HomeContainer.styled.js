@@ -54,7 +54,7 @@ export const ImageWrapper = styled.div`
 background-color: ${({ theme }) => theme.colors.black};
 color: ${({ theme }) => theme.colors.black};
 border-radius: 80px;
-height: 370px;
+height: 470px;
 position: relative;
 display: flex;
 justify-content: center;

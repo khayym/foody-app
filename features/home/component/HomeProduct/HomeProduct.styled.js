@@ -25,6 +25,7 @@ export const Desc = styled.p`
 font-size: 22px;
 line-height: 30px;
 text-align: left;
+width: 499px;
 color: ${({ theme }) => theme.colors.grayText1};
 @media (max-width: 767.9px) {
    font-size: 16px;

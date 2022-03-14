@@ -4,10 +4,10 @@ export const ContentWrapper = styled.div``
 export const ItemWrapper = styled.div`
 background-color: ${({ theme }) => theme.colors.white};
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-width: 235px;
+width: 240px;
 height: 345px;
 padding: 20px;
-margin:0px 0px 30px 10px;
+margin:0px 0px 30px 36px;
 position: relative;
     @media(max-width:541.9px){
     width: 200px;

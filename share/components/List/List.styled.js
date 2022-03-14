@@ -6,12 +6,20 @@ export const ListWrapper = styled(List)`
 background-color: ${({ theme }) => theme.colors.whiteLight1} !important; 
 height: 90vh; 
 overflow-y:auto;
+max-width: 100% !important;
+
+.css-aw8ruk-MuiTypography-root{
+display: flex !important;
+justify-content: center !important;
+}
+
+
 ${({ big }) => css`
         @media (max-width: 899.9px) {
             display:${big ? 'none' : 'block'} !important;
             max-width: 100%;
             max-height: 100% !important;  
-            background-color: ${({ theme }) => theme.colors.white};
+            background-color: ${({ theme }) => theme.colors.white} !important;
         }
     `}
 `

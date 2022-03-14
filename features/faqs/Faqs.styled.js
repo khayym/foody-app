@@ -13,7 +13,15 @@ padding: 70px 120px;
         display: none !important;
     }
 }
-
+.mantine-hgwlez.mantine-Accordion-label{
+    font-weight: 500;
+    font-size: 22px;
+}
+.mantine-10o5s20.mantine-Accordion-contentInner{
+    font-weight: 500;
+    font-size: 18px;
+    color: ${({ theme }) => theme.colors.grayText1};
+}
 @media (max-width:575.9px) {
     padding: 50px 12px !important;
     }

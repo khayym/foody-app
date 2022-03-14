@@ -1,5 +1,4 @@
 import { Stack } from '@mui/material';
-import List from '@mui/material/List';
 import styled from 'styled-components';
 
 
@@ -13,7 +12,7 @@ export const ItemCardWrapper = styled(Stack).attrs(() => ({
 display: flex;
 flex-wrap: wrap;
 width:100%;
-justify-content:space-between;
+/* justify-content:space-between; */
 
 /* height: 720px;
 overflow: auto; */
