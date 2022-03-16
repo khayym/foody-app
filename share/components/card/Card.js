@@ -6,7 +6,7 @@ const Card = ({title,desc}) => {
             <Wrap>
                 <Wrapper>
                     <ImageWrap>
-                        <Image src='/images/burger.svg' width='239' height='239' />
+                        <Image src='/images/burger.svg' width='239' height='223' />
                     </ImageWrap>
                     <ContentWrap>
                         <Title>{title}</Title>

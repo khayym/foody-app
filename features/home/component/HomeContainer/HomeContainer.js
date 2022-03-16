@@ -28,9 +28,9 @@ const HomeContainer = () => {
                 <Grid lg={5}>
                     <ImageWrapper>
                         <TopImage src='/images/burger.svg' alt='burger' width='730' height='750' />
-                        <MiniCard left="245" top="-30" />
-                        <MiniCard left="-70" top="300" />
-                        <MiniCard left="245" top="410" />
+                        <MiniCard right="0" top="-30" />
+                        <MiniCard right="400" top="300" />
+                        <MiniCard right="0" top="410" />
                     </ImageWrapper>
                 </Grid>
             </Wrap>
@@ -62,13 +62,17 @@ const HomeContainer = () => {
 
             <ProductWrapper>
                 <HomeProduct
+                    img='/images/burger1.svg'
                     title='Menu That Always Make You Fall In Love'
                     desc='Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.' />
                 <HomeProduct
                     order='2'
+                    transform="true"
+                    img='/images/burger2.svg'
                     title='Yummy Always Papa John’s Pizza.Agree?'
                     desc='Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.' />
                 <HomeProduct
+                    img='/images/burger3.svg'
                     title='Do You Like French Fries? Mmm...'
                     desc='Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.' />
             </ProductWrapper>

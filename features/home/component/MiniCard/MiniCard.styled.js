@@ -12,30 +12,32 @@ height: 91px;
 display: flex;
 align-items: center;
 justify-content: space-around;
-
 position: absolute;
-left: -72px;
+right: 0;
 bottom: 10px;
 
-${({ top, left }) => css`
-        top: ${top ? `${top}px` : "0"} !important;
-        left: ${left ? `${left}px` : "0"} !important;
+${({ top, right }) => css`
+        right: ${right ? `${right}px` : "0"};
+        top: ${top ? `${top}px` : "0"};
         position:absolute;
 
         @media (max-width: 1199.9px) {
-        &:nth-child(even){
-                left: 44px !important;
-        }
         &:nth-child(odd){
-                left: -23px !important;
+                right: 200px !important;
+        }
+        }
+        @media (max-width: 991.9px) {
+        &:nth-child(odd){
+                right: 450px !important;
         }
         }
         @media (max-width: 767.9px) {
-        &:nth-child(even){
-            display: none !important;
-        }
         &:nth-child(odd){
-                left: 117px !important;
+        top: 170px !important;
+        right: 0px !important;
+        }
+        &:nth-child(even){
+        display: none;
         }
         }
     `}

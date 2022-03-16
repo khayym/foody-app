@@ -23,7 +23,6 @@ const FooterPage = () => {
             <footer>
                 <FooterWrapper>
                     {getFooterTop()}
-                    
                     <Grid container>
                         <Grid lg={4} md={5} sm={12}>
                             <Logo>Foody.</Logo>

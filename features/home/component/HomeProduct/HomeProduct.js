@@ -1,6 +1,6 @@
 import { Grid } from '@material-ui/core';
 import { Bgimg, Split, ContentWrapper, Wrap, Title, Desc, ImgWrapper, CustomImage } from './HomeProduct.styled.js';
-const HomeProduct = ({ title, desc, order }) => {
+const HomeProduct = ({ title, desc, order, img, transform }) => {
     return (
         <>
             <Wrap>
@@ -17,8 +17,8 @@ const HomeProduct = ({ title, desc, order }) => {
                     </Split>
                     <Split >
                         <ImgWrapper>
-                            <Bgimg />
-                            <CustomImage src='/images/burger.svg' />
+                            <Bgimg transform={transform} />
+                            <CustomImage src={img} />
                         </ImgWrapper>
                     </Split>
                 </Grid>
