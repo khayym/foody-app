@@ -27,6 +27,7 @@ line-height: 30px;
 text-align: left;
 width: 499px;
 color: ${({ theme }) => theme.colors.grayText1};
+
 @media (max-width: 767.9px) {
    font-size: 16px;
 }
@@ -39,6 +40,7 @@ background: #D63626;
 border-radius: 50px;
 transform: rotate(22.82deg);
 position: absolute !important;
+  
 @media (max-width: 1199.9px) {
     transform: rotate(12deg);
     }
@@ -54,6 +56,11 @@ position: absolute !important;
     width: 187.27px;
     height: 251.72px;
     }
+    ${({ transform }) => css`
+    transform:${transform ? 'matrix(0.89, -0.43, 0.47, 0.9, 0, 0);' : '0'} !important;
+ `}
+
+
 `
 
 export const Split = styled(Grid).attrs(() => ({
@@ -63,6 +70,7 @@ export const Split = styled(Grid).attrs(() => ({
     `
 ${({ order }) => css`
     order:${order ? '2' : '1'} !important;
+    padding-left:${order ? '60px' : '0'} !important;
 @media (max-width: 767.9px) {
     order:${order ? '1' : '2'} !important;
 }
@@ -84,7 +92,7 @@ export const Wrap = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
-padding: 90px 70px 120px 70px;
+padding: 90px 70px 220px 70px;
 
 @media (max-width: 1299.9px) and (min-width: 959.9px)  {
     padding: 90px 30px 120px 30px;

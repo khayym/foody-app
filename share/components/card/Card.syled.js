@@ -29,16 +29,16 @@ export const ContentWrap = styled.div`
 text-align: center;
 `
 
-export const Title = styled.div`
+export const Title = styled.p`
 font-weight: bold;
 font-size: 30px;
 color: ${({ theme }) => theme.colors.black};
-margin-bottom: 12px;
+margin: 0px 0px 12px 0px;
 `
 
-export const Desc = styled.div`
+export const Desc = styled.p`
 font-size: 18px;
 color: ${({ theme }) => theme.colors.grayText1};
 line-height: 30px;
-margin-bottom: 10px;
+margin: 0px 0px 12px 0px;
 `

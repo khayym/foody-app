@@ -7,7 +7,7 @@ left: 50%;
 transform: translate(-50%,0);
 width: 1066px;
 height: 372px;
-top: -300px;
+top: -317px;
 background: #272727;
 border-radius: 50px;
 display: flex;
@@ -29,6 +29,7 @@ padding:0px 50px;
 `
 export const CenterWrap = styled.div`
 text-align: center;
+width: 58%;
 `
 
 export const Title = styled.h5`

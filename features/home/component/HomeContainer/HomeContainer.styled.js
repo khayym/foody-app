@@ -4,9 +4,8 @@ import Image from 'next/image';
 import { css } from "styled-components";
 
 export const Wrap = styled.div`
-padding:40px 10px 40px 20px;
+padding:0px 28px 140px 20px;
 background-color:${({ theme }) => theme.colors.whiteLight1};
-height:100vh;
 display: flex;
 align-items: center;
 justify-content: space-between;
@@ -19,18 +18,26 @@ justify-content: space-between;
 
 export const ContentWrapper = styled.div`
 text-align: justify;
-margin:0px 17px 0px 25px;
+    @media (max-width: 767.9px) {
+    padding:0px 28px 40px 20px;
+    }
     @media (max-width: 575.9px) {
         text-align: center;
     }
 `
 
 export const Title = styled.h4`
+
+width: 694px;
 font-weight: 900;
 font-size: 54px;
 line-height: 70px;
+text-align: initial;
 margin:0;
 color: ${({ theme }) => theme.colors.black};
+    @media (max-width: 765.9px) {
+        width: 100%;
+    }
     @media (max-width: 575.9px) {
     line-height: 30px;
     font-size: 20px;
@@ -40,7 +47,7 @@ color: ${({ theme }) => theme.colors.black};
 export const Desc = styled.p`
 font-size: 20px;
 line-height: 30px;
-width: 70%;
+width: 528px;
 margin-bottom:43px;
 color: ${({ theme }) => theme.colors.grayText1};
     @media (max-width: 765.9px) {
@@ -66,7 +73,9 @@ margin-bottom: 40px;
 background-color:${({ theme }) => theme.colors.whiteLight1};
 margin-bottom: 3px;
     }
-
+    @media (max-width: 475.9px) {
+        display: contents;
+    }
 `
 export const TopImage = styled(Image)`
     @media (max-width: 991.9px) {
@@ -82,7 +91,7 @@ object-fit: cover;
 `
 
 export const Features = styled.div`
-padding: 60px 0px;
+padding: 82px 0px 300px 0px;
 ${({ h }) => css`
     margin-bottom:${h ? '280px' : '0'} !important;
 @media (max-width: 765.9px) {
@@ -92,18 +101,24 @@ ${({ h }) => css`
 `
 export const FeatureContent = styled.div`
 text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 `
 export const FeaturTitle = styled.h4`
 font-weight: 900;
 font-size: 40px;
 color: ${({ theme }) => theme.colors.black};
 margin: 0;
+
+width: 33%;
 `
 export const Text = styled.p`
 font-size: 22px;
 color: ${({ theme }) => theme.colors.grayText1};
 text-align: center;
-width: 50%;
+width: 54%;
 line-height:32px;
 @media (max-width: 991.9px) {
     width: 80%;
