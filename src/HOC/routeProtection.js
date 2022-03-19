@@ -24,23 +24,23 @@ export const withPublic = (WrappedComponent) => {
 
 // ---  Istifadeci sehifesi olan zaman -----
 
-// export const withProtected = (WrappedComponent) => {
-//     return (props) => {
-//         const router = useRouter();
-//         const { authUser, authLoading } = useAuth();
+export const withProtected = (WrappedComponent) => {
+    return (props) => {
+        const router = useRouter();
+        const { user, loading } = useAuth();
 
 
-//         useEffect(() => {
-//             if (!authUser) {
-//                 router.replace("/user");
-//                 return null;
-//             }
-//         }, [authUser]);
+        useEffect(() => {
+            if (!user) {
+                router.replace("/register");
+                return null;
+            }
+        }, [user, router]);
 
-//         if (!authUser || authLoading) {
-//             return <h1>Loading here!</h1>; // full-screen loader here
-//         }
+        if (!user || loading) {
+            return <h1>Loading here!</h1>; // full-screen loader here
+        }
 
-//         return <WrappedComponent {...props} />;
-//     };
-// };
+        return <WrappedComponent {...props} />;
+    };
+};
