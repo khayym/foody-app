@@ -3,40 +3,32 @@ import dynamic from "next/dynamic";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { UserLayout } from "../../share/components/User";
-import Profil from "../../features/user/profil";
-import UserBasket from "../../features/user/basket";
+const ProfileContainer = dynamic(() => import("../../features/user/profil"));
+const BasketContainer = dynamic(() => import("../../features/user/basket"));
+const OrdersContainer = dynamic(() => import("../../features/user/orders"))
+const CheckoutContainer = dynamic(() => import("../../features/user/checkout"))
 import { withProtected } from "../../src/HOC/routeProtection"
-import UserOrder from "../../features/user/orders";
-import UserCheckout from "../../features/user/checkout";
 
-// const Layout = dynamic(() => import("../../components/Layout"))
-// const ProfileContainer = dynamic(() => import("../../features/User/Profile"))
-// const BasketContainer = dynamic(() => import("../../features/User/Basket"))
-// const OrdersContainer = dynamic(() => import("../../features/User/Orders"))
-// const CheckoutContainer = dynamic(() => import("../../features/User/Checkout"))
-// const Navigation = dynamic(() => import("../../features/User/Navigation"))
-// const ErrorPage = dynamic(() => import("../../features/NotFound/NotFoundContainer"))
 
 const UserPage = () => {
     let { query: { page } } = useRouter()
 
     const renderPage = () => {
-        console.log('--', page)
         let user = {}
 
         if (page) {
             switch (page) {
                 case "profile":
-                    user.component = <Profil />
+                    user.component = <ProfileContainer />
                     break;
                 case "basket":
-                    user.component = <UserBasket />
+                    user.component = <BasketContainer />
                     break;
                 case "orders":
-                    user.component = <UserOrder />
+                    user.component = <OrdersContainer />
                     break;
                 case "checkout":
-                    user.component = <UserCheckout />
+                    user.component = <CheckoutContainer />
                     break;
                 default:
                     user = {
