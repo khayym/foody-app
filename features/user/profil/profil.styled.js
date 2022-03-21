@@ -3,7 +3,6 @@ import Container from '@mui/material/Container';
 import { Button } from '@mantine/core';
 
 export const ProfileComponent = styled(Container)`
-border: 1px solid grey;
 height:100%;
 
 h1{
