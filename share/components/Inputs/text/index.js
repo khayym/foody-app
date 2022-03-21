@@ -2,7 +2,7 @@ import React from 'react';
 import { TextInputCustom } from './TextInput.Styled';
 
 
-export const TextInputOwn = ({ custimize, placeholder, label }) => {
+export const TextInputOwn = ({ custimize, placeholder, label, vercion }) => {
     return (
         <TextInputCustom
             size="lg"
@@ -11,6 +11,7 @@ export const TextInputOwn = ({ custimize, placeholder, label }) => {
             // required
             placeholder={placeholder}
             label={label}
+            vercion={vercion}
             {...custimize}
         />
     );

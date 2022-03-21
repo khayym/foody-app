@@ -1,9 +1,9 @@
-import Faqs from "../../features/faqs";
+import Faqs from "../../features/faqs/Faqs";
 
 const index = () => {
     return (
         <>
-            <Faqs/>
+            <Faqs />
         </>
     );
 };

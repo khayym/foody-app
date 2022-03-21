@@ -1,4 +1,5 @@
-import AboutUs from "../../features/aboutUs/aboutUs";
+import AboutUs from "../../features/aboutUs";
+
 
 const index = () => {
     return (
