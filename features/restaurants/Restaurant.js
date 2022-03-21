@@ -29,7 +29,7 @@ const Restaurant = () => {
                 <title> Restaurant | Foody Delivery</title>
             </Head>
             <Containers >
-                <Grid container spacing={2} mt={5}>
+                <Grid container mt={5}>
                     <Grid lg={2} md={3} sm={12}>
                         <RestaurantList />
                     </Grid>
