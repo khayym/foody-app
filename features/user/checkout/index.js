@@ -1,17 +1,17 @@
 import React from 'react'
+import { CheckoutContainer } from './checkout.styled'
 import Form from './components/form'
 import Orders from './components/orders'
-import styled from 'styled-components'
 import { Grid } from '@mui/material'
 
 
 const UserCheckout = () => {
     return (
         <CheckoutContainer container>
-            <Grid item xs className="formGrid">
+            <Grid item xl={8} lg={8} md={12} className="formGrid" >
                 <Form />
             </Grid>
-            <Grid item xs className="ordersGrid">
+            <Grid item xs className="ordersGrid" style={{ backgroundColor: '#F3F4F6' }}>
                 <Orders />
             </Grid>
         </CheckoutContainer>
@@ -20,15 +20,3 @@ const UserCheckout = () => {
 
 export default UserCheckout
 
-const CheckoutContainer = styled(Grid)`
-
-    gap:1rem;
-   
-   .formGrid{
-       border:1px solid;
-   }
-
-   .ordersGrid{
-    border:1px solid;
-   }
-`
