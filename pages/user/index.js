@@ -3,11 +3,11 @@ import dynamic from "next/dynamic";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { UserLayout } from "../../share/components/User";
+import { withProtected } from "../../src/HOC/routeProtection"
 const ProfileContainer = dynamic(() => import("../../features/user/profil"));
 const BasketContainer = dynamic(() => import("../../features/user/basket"));
 const OrdersContainer = dynamic(() => import("../../features/user/orders"))
 const CheckoutContainer = dynamic(() => import("../../features/user/checkout"))
-import { withProtected } from "../../src/HOC/routeProtection"
 
 
 const UserPage = () => {
