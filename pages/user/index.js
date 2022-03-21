@@ -6,6 +6,8 @@ import { UserLayout } from "../../share/components/User";
 import Profil from "../../features/user/profil";
 import UserBasket from "../../features/user/basket";
 import { withProtected } from "../../src/HOC/routeProtection"
+import UserOrder from "../../features/user/orders";
+import UserCheckout from "../../features/user/checkout";
 
 // const Layout = dynamic(() => import("../../components/Layout"))
 // const ProfileContainer = dynamic(() => import("../../features/User/Profile"))
@@ -30,12 +32,12 @@ const UserPage = () => {
                 case "basket":
                     user.component = <UserBasket />
                     break;
-                // case "orders":
-                //     user.component = <OrdersContainer />
-                //     break;
-                // case "checkout":
-                //     user.component = <CheckoutContainer />
-                //     break;
+                case "orders":
+                    user.component = <UserOrder />
+                    break;
+                case "checkout":
+                    user.component = <UserCheckout />
+                    break;
                 default:
                     user = {
                         error: true,

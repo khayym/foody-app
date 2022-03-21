@@ -15,8 +15,9 @@ export const UserContainer = styled(Grid)`
 `
 
 export const UserPageContent = styled(Grid)`
+
     /* border: 1px solid red; */
-    background-color:${({ theme }) => theme.colors.whiteLight1};
+    background-color:${({ theme, page }) => page == 'checkout' ? "#fff" : theme.colors.whiteLight1};
     overflow: hidden;
     border-radius:5px;
 

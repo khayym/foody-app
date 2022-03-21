@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 
 export const Containers = styled.div`
-padding: 0px 0px 70px 20px;
+padding: 0px 0px 70px ;
 `
 
 export const ItemCardWrapper = styled(Stack).attrs(() => ({
@@ -17,7 +17,8 @@ width:100%;
 /* height: 720px;
 overflow: auto; */
 
-@media(max-width:575.9px){
-    justify-content:space-evenly;
+@media(max-width:900px){
+    justify-content:center;
     }
+
 `

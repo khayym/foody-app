@@ -6,7 +6,6 @@ import { BasketContainer, BasketFooter, OrderCount } from './basket.styled';
 
 
 const UserBasket = () => {
-
     const products = [
         {
             name: 'Papa Jons Pizza',
