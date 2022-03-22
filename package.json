@@ -16,6 +16,7 @@
     "@mantine/core": "^3.6.14",
     "@mantine/form": "^4.0.4",
     "@mantine/hooks": "^3.6.14",
+    "@mantine/next": "^4.0.7",
     "@material-ui/core": "^4.12.3",
     "@material-ui/styles": "^4.11.4",
     "@modulz/radix-icons": "^4.0.0",
