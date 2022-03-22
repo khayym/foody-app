@@ -40,7 +40,7 @@ const UserPage = () => {
         return user
     }
 
-    let { component, error } = renderPage()
+    let { component } = renderPage()
 
     return (
         <Fragment>
