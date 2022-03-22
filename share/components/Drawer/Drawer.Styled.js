@@ -5,7 +5,7 @@ import Link from 'next/link';
 export const DrawerStyled = styled(Drawer)`
     .MuiDrawer-paperAnchorLeft{
     width:80vw;
-    height:100vh;
+    height:100%;
     background-color:#fff;
 
     }

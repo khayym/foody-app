@@ -17,11 +17,11 @@ export const ResponsiveAppBar = () => {
 
     const dispatch = useDispatch();
 
-    const location = useRouter();
+    const { pathname, push } = useRouter();
     const { logout } = useAuth();
 
     return (
-        <AppBarStyled position="static" className='CustomNavBar' location={location.pathname}>
+        <AppBarStyled position="static" className='CustomNavBar' location={pathname}>
             <ContainerStyled>
                 <CustomDrawer />
                 <ToolBarStyled disableGutters>
@@ -46,7 +46,9 @@ export const ResponsiveAppBar = () => {
                         <Image src={"/images/logo.svg"} alt="" width="130" height="30" />
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                        <Image src={"/images/logo.svg"} alt="" width="130" height="30" />
+                        {
+                            (pathname === '/login' || pathname === '/register') ? <Image src={"/images/whiteLogo.svg"} alt="" width="130" height="30" /> : <Image src={"/images/logo.svg"} alt="" width="130" height="30" />
+                        }
                         <Ul>
                             <li>
                                 <Link href="/">

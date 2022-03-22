@@ -9,6 +9,11 @@ background-color:${({ theme, location }) => location !== '/login' && location !=
 display:flex;
 align-items:center;
 
+    ul{
+        display:${({ location }) => (location === '/login' || location === '/register') && 'none'}
+    }
+
+
     @media(max-width:756px){
         height:3.25rem;
     }
@@ -27,7 +32,7 @@ export const ToolBarStyled = styled(ContainerStyled)`
 export const Ul = styled.ul`
 display:flex;
 flex-direction:row;
-color: #000;
+color:${({ theme }) => theme.colors.grayText1};
 list-style-type: none;
 gap:1rem;
     li{
