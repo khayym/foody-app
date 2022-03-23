@@ -19,6 +19,10 @@ align-items:center;
     @media(max-width:756px){
         height:3.25rem;
     }
+
+    .MuiSvgIcon-root{
+        color:#000;
+    }
 `
 
 export const ContainerStyled = styled(Toolbar)`

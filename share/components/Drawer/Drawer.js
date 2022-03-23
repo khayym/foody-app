@@ -55,7 +55,7 @@ export const CustomDrawer = () => {
                             <>
                                 <Li onClick={() => dispatch(drawer())}>
                                     {
-                                        <LinkStyled href='/about-us'>
+                                        <LinkStyled href='/user?page=profile'>
                                             <h2>Profil</h2>
                                         </LinkStyled>
                                     }
@@ -63,21 +63,21 @@ export const CustomDrawer = () => {
 
                                 <Li onClick={() => dispatch(drawer())}>
                                     {
-                                        <LinkStyled href='/your-order'>
+                                        <LinkStyled href='/user?page=orders'>
                                             <h2>Your order</h2>
                                         </LinkStyled>
                                     }
                                 </Li>
                                 <Li onClick={() => dispatch(drawer())}>
                                     {
-                                        <LinkStyled href='/your-baskte'>
+                                        <LinkStyled href='/user?page=basket'>
                                             <h2>Your Basket</h2>
                                         </LinkStyled>
                                     }
                                 </Li>
                                 <Li onClick={() => dispatch(drawer())}>
                                     {
-                                        <LinkStyled href='/checkour'>
+                                        <LinkStyled href='/user?page=checkout'>
                                             <h2>Checkout</h2>
                                         </LinkStyled>
                                     }
@@ -119,9 +119,6 @@ export const CustomDrawer = () => {
                         </LogOutButton>
                     }
                 </UL>
-
-
-
             </div>
 
 
