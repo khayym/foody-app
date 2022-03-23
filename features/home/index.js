@@ -3,9 +3,10 @@ import Image from 'next/image';
 import { Button, Grid, SimpleGrid } from '@mantine/core';
 import Lents from './components/lents';
 import ScreenCards from './components/screenCards';
-import { HomeContainer } from './Home.Styled'
 import { useRouter } from 'next/router'
 import { useAuth } from '../../src/context/AuthContext'
+import { HomeContainer } from './Home.Styled';
+
 const lentOne = {
     title: "Features",
     consept: "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.",
