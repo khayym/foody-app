@@ -3,9 +3,10 @@ import styled from "styled-components"
 import Link from 'next/link';
 
 export const DrawerStyled = styled(Drawer)`
+height:100%;
     .MuiDrawer-paperAnchorLeft{
     width:80vw;
-    height:100%;
+    height:100% !important;
     background-color:#fff;
 
     }

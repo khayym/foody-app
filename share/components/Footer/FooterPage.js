@@ -4,7 +4,7 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import { Grid } from '@mui/material';
 import FooterList from './component/FooterList/FooterList';
 import FooterTop from './component/FooterTop/FooterTop';
-import { FooterWrapper, Desc, Logo, SosialNetwork, IconWrap, ListWrap } from './FooterPage.styled'
+import { FooterWrapper, Desc, Logo, SosialNetwork, IconWrap, ListWrap, FooterStyle } from './FooterPage.styled'
 import { useRouter } from "next/router"
 const FooterPage = () => {
     let { pathname } = useRouter()
@@ -20,7 +20,7 @@ const FooterPage = () => {
 
     return (
         <>
-            <footer style={{ marginTop: '20rem' }}>
+            <FooterStyle pathname={pathname}>
                 <FooterWrapper>
                     {getFooterTop()}
                     <Grid container>
@@ -48,7 +48,7 @@ const FooterPage = () => {
                         </Grid>
                     </Grid>
                 </FooterWrapper>
-            </footer>
+            </FooterStyle>
         </>
     );
 };

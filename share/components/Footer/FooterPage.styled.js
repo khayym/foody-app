@@ -4,6 +4,7 @@ export const FooterWrapper = styled.div`
 background: ${({ theme }) => theme.colors.black};
 padding: 50px;
 position:relative;
+
 @media(max-width:575.9px){
     padding: 25px;
 }
@@ -61,4 +62,8 @@ transition: .3s;
 color: ${({ theme }) => theme.colors.white};
 background:${({ theme }) => theme.colors.orange};
     }
+`
+
+export const FooterStyle = styled.footer`
+    margin-top:${({ pathname }) => (pathname === '/login' || pathname === '/register') ? '2rem' : '20rem'}
 `

@@ -1,11 +1,11 @@
 import React from 'react'
-import styled from 'styled-components'
 import { useState } from 'react';
 import { Tabs } from '@mantine/core';
 import LoginComponent from './login'
 import RegisterComponent from './register'
-// import { useRouter } from 'next/router';
 // import Image from 'next/image';
+import { CustomTab, LeftSide, LoginAndRegisterSide, RegisterLoginContainer } from './Register.Styled';
+import { Image } from '@mantine/core';
 
 export const LoginAndRegister = ({ conIndex }) => {
     const [activeTab, setActiveTab] = useState(conIndex);
@@ -13,9 +13,13 @@ export const LoginAndRegister = ({ conIndex }) => {
     return (
         <RegisterLoginContainer>
             <LeftSide>
-                {
-                    // img
-                }
+
+                {!activeTab ? <Image
+                    width={567} height={728}
+                    fit="contain"
+                    alt='register-img'
+                    src='/images/login/login.svg'
+                /> : <Image src='/images/login/register.svg' width='567' height='728' alt='Login' className='side-img' />}
             </LeftSide>
             <LoginAndRegisterSide>
                 <CustomTab active={activeTab} position="center" onTabChange={setActiveTab}>
@@ -32,55 +36,3 @@ export const LoginAndRegister = ({ conIndex }) => {
     )
 }
 
-
-
-const RegisterLoginContainer = styled.div`
-margin-top:16px;
-display:flex;
-@media(max-width:47.25rem) {
-    flex-direction:column;
-}
-`
-
-const LeftSide = styled.aside`
-width:55%;
-background-color: ${({ theme }) => theme.colors.lightRed};
-height:900px;
-border-radius:.25rem;
-@media(max-width:47.25rem) {
-    width:100%;
-    height:10rem;
-}
-
-`
-
-const LoginAndRegisterSide = styled.div`
-    padding:16px;
-    width:45%;
-
-    @media(max-width:47.25rem) {
-    width:100%;
-    height:100vh;
-}
-`
-
-const CustomTab = styled(Tabs)`
-margin-top:48px;
-
-.mantine-1gjxu3z {
-border-bottom: none;
-}
-
-button{
-        border-bottom: 0rem ;
-        font-size:30.016px;
-        color:${({ theme }) => theme.colors.grayText1};
-
-
-        &[aria-selected='true']{
-            color:${({ theme }) => theme.colors.lightRed};
-        }
-    }
-
-
-`

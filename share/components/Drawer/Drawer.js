@@ -49,7 +49,13 @@ export const CustomDrawer = () => {
                             </LinkStyled>
                         }
                     </Li>
-
+                    <Li onClick={() => dispatch(drawer())}>
+                        {
+                            <LinkStyled href="/restaurants">
+                                <h2>Restaurant</h2>
+                            </LinkStyled>
+                        }
+                    </Li>
                     {
                         user && (
                             <>
