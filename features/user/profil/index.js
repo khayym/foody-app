@@ -5,8 +5,6 @@ import { CustomButton, Div, ProfileComponent, UserProfileContainer } from './pro
 
 
 const Profil = () => {
-    // const { user } = useAuth();
-    // console.log(user);
     return (
         <ProfileComponent>
             <h1>Profile</h1>

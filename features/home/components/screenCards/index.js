@@ -4,7 +4,6 @@ import { ScreenCardsContainer } from './Screen.Styled';
 
 
 const ScreenCards = ({ data }) => {
-    console.log(data)
     return (
         <div>
 
