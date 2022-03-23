@@ -14,7 +14,6 @@ const SidebarUser = () => {
 
     useEffect(() => {
         pathname === '/user' && push('/user?page=profile')
-        console.log('isledi');
     }, [pathname])
 
     return (

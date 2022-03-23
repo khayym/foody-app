@@ -21,7 +21,6 @@ export const AuthContextProvider = ({ children }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      console.log(user);
       user ? setUser({ uid: user.uid, email: user.email, displayName: user.displayName, imgUrl: user.photoURL }) : setUser(null);
       setLoading(false);
     });
@@ -33,7 +32,6 @@ export const AuthContextProvider = ({ children }) => {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       await sendEmailVerification(auth.currentUser);
-      console.log(name);
       await updateProfile(auth.currentUser, {
         displayName: name,
         photoURL: 'https://www.imgacademy.com/themes/custom/imgacademy/images/helpbox-contact.jpg',

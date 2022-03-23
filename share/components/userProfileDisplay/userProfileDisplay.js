@@ -14,7 +14,7 @@ const UserProfileDisplay = () => {
             <UserInterface>
                 <IconButton sx={{ p: 1 }}>
                     {/* <AddButton /> */}
-                    <Avatar alt="Remy Sharp" src="https://ca.slack-edge.com/T02JE9BKJ2V-U02J1LWQBB4-c0da48f24153-72" />
+                    <Avatar alt="Remy Sharp" />
                 </IconButton>
                 <h2>{user.displayName}</h2>
             </UserInterface>

@@ -20,7 +20,7 @@ const FooterPage = () => {
 
     return (
         <>
-            <footer style={{ marginTop: '10rem' }}>
+            <footer style={{ marginTop: '20rem' }}>
                 <FooterWrapper>
                     {getFooterTop()}
                     <Grid container>
