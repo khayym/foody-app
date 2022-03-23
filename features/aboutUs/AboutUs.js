@@ -2,8 +2,13 @@ import { Wrapper, Wrap, BgCard, Text, Title, Desc } from './AboutUs.styled'
 import Head from 'next/head';
 import { Grid } from '@mui/material';
 import AboutCard from '../../share/components/aboutCard/AboutCard';
+import { useState, useEffect } from 'react';
+import axios from "axios";
+
+
 
 const AboutUs = () => {
+
     return (
         <>
             <Head>
