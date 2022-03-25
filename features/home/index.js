@@ -195,6 +195,7 @@ width:100%;
       @media (max-width:900px){
           background-color:transparent !important;
           height:300px !important;
+          /* dddd */
       }
   }
 
