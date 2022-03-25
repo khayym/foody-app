@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Typography, Box, Button } from '@mui/material';
-
 export const showWord = styled.p`
 padding: 0px 0px 0px 13px;
 font-weight: 600;
