@@ -1,16 +1,13 @@
 import * as React from 'react';
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { DataModalDelete } from '../DataModalDelete/DataModalDelete';
+import DataModalTable from '../DataModalTable';
 
-const options = [
-  'show',
-  'delete',
-];
+
 const ITEM_HEIGHT = 48;
-
-const Table = () => {
+const Tables = () => {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -42,18 +39,15 @@ const Table = () => {
                 PaperProps={{
                     style: {
                         maxHeight: ITEM_HEIGHT * 4.5,
-                        width: '20ch',
+                        width: '100px',
                     },
                 }}
             >
-                {options.map((option) => (
-                    <MenuItem key={option} selected={option === 'Pyxis'} onClick={handleClose}>
-                        {option}
-                    </MenuItem>
-                ))}
+                <DataModalTable/>
+                <DataModalDelete />
             </Menu>
         </div>
     );
 };
 
-export default Table;
+export default Tables;
