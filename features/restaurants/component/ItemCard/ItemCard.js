@@ -6,19 +6,22 @@ import { ButtonWrap } from '../../../../share/components/Button/Button.styled';
 const ItemCard = ({ data }) => {
     return (
         <>
-            {data && data.map((i) => (
-                <ItemWrapper key={i.id}>
+            {data && data.map(({ uniqueId, cuisine, deliverMin, name, price, imgUrl }) => (
+                <ItemWrapper key={uniqueId}>
                     <ItemBadge>New</ItemBadge>
                     <ImgWrapper>
-                        <Image width='174px' height='160px' src='/images/pizza.jpg' alt='Pizza' />
+                        {
+                            imgUrl ? <Image width='174px' height='160px' alt='img' src={imgUrl} /> : <Image width='174px' height='160px' src='/images/pizza.jpg' alt='Pizza' />
+                        }
+
                     </ImgWrapper>
                     <ContentWrapper>
-                        <Title>Burger {i.id}</Title>
-                        <Desc>chinese, sea-food, thai, lebanese, caribbean</Desc>
+                        <Title>{name}</Title>
+                        <Desc>{cuisine[0]}</Desc>
                     </ContentWrapper>
                     <AboutItem >
-                        <Price>$1 Delivery</Price>
-                        <ButtonWrap>09 Min</ButtonWrap>
+                        <Price>${price} Delivery</Price>
+                        <ButtonWrap>{deliverMin} Min</ButtonWrap>
                     </AboutItem>
                 </ItemWrapper>
             ))}

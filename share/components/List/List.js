@@ -8,11 +8,11 @@ const List = ({ big }) => {
     return (
         <>
             <ListWrapper big={big} dense sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-                {data && data.map((value) => {
+                {data && data.map((value, i) => {
                     const labelId = `checkbox-list-secondary-label-${value}`;
                     return (
                         <ListItem
-                            key={value}
+                            key={i}
                             disablePadding
                         >
                             <ListItemButton>

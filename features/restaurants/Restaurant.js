@@ -7,20 +7,27 @@ import RestaurantList from './component/RestaurantList';
 import RestaurantListMobile from './component/RestaurantListMobile';
 import useSWR from 'swr';
 import { useState } from 'react';
+import { useCollection } from 'swr-firestore-v9'
 
 const Restaurant = () => {
-    const fetcher = (...args) => fetch(...args).then(res => res.json())
-    const { data, error } = useSWR('https://jsonplaceholder.typicode.com/posts', fetcher)
+
+    const { data } = useCollection('restaurants', {
+        orderBy: ['uniqueId', 'asc'],
+        listen: true,
+    })
+
+    console.log(data)
 
     const [page, setPage] = useState(1);
-    const postsPerPage = Math.ceil(data && data.length / 13);
+    const postsPerPage = Math.ceil(8);
+    const last_page = Math.ceil(data && data?.length / postsPerPage)
     const indexOfLastPost = page * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
-    const currentPosts = data && data.slice(indexOfFirstPost, indexOfLastPost)
-
+    const currentPosts = data?.slice(indexOfFirstPost, indexOfLastPost)
     const handleChange = (event, value) => {
         setPage(value);
     };
+
 
     return (
         <>
@@ -39,7 +46,7 @@ const Restaurant = () => {
                         <ItemCardWrapper>
                             <ItemCard data={currentPosts} />
                         </ItemCardWrapper>
-                        <Paginations postsPerPage={postsPerPage} page={page} handleChange={handleChange} />
+                        <Paginations postsPerPage={last_page} page={page} handleChange={handleChange} />
                     </Grid>
                 </Grid>
             </Containers>

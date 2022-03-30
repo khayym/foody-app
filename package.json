@@ -39,6 +39,7 @@
     "styled-components": "^5.3.3",
     "styled-media-query": "^2.1.2",
     "swr": "^1.2.2",
+    "swr-firestore-v9": "^1.0.5",
     "tabler-icons-react": "^1.37.0",
     "yup": "^0.32.11"
   },

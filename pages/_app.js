@@ -2,15 +2,20 @@ import AppProvider from '../app/AppProvider'
 import '../styles/globals.css'
 import styled from 'styled-components'
 import { AuthContextProvider } from '../src/context/AuthContext'
+import { Fuego, FuegoProvider } from 'swr-firestore-v9'
+import { firebaseConfig } from '../src/config/firebase'
 
+const fuego = new Fuego(firebaseConfig)
 
 function MyApp({ Component, pageProps }) {
   return (
     <AppContainer>
       <AuthContextProvider>
-        <AppProvider>
-          <Component {...pageProps} />
-        </AppProvider >
+        <FuegoProvider fuego={fuego}>
+          <AppProvider>
+            <Component {...pageProps} />
+          </AppProvider >
+        </FuegoProvider>
       </AuthContextProvider>
     </AppContainer>
   )

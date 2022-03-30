@@ -2,7 +2,7 @@ import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 
 
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyBaqa80H7IjqYgdIjVtvY8WneBapjQTGVo",
   authDomain: "foody-main.firebaseapp.com",
   databaseURL: "https://foody-main-default-rtdb.firebaseio.com",
