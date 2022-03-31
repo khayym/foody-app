@@ -8,7 +8,6 @@ const ItemCard = ({ data }) => {
         <>
             {data && data.map(({ uniqueId, cuisine, deliverMin, name, price, imgUrl }) => (
                 <ItemWrapper key={uniqueId}>
-                    <ItemBadge>New</ItemBadge>
                     <ImgWrapper>
                         {
                             imgUrl ? <Image width='174px' height='160px' alt='img' src={imgUrl} /> : <Image width='174px' height='160px' src='/images/pizza.jpg' alt='Pizza' />
