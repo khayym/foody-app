@@ -19,8 +19,6 @@ const Restaurant = () => {
         where: ['category', '==', `${categoryName}`],
     })
 
-    console.log(data)
-
     const [page, setPage] = useState(1);
     const postsPerPage = Math.ceil(8);
     const last_page = Math.ceil(data && data?.length / postsPerPage)
@@ -58,3 +56,4 @@ const Restaurant = () => {
 };
 
 export default Restaurant;
+

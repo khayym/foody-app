@@ -26,7 +26,6 @@ const List = ({ big }) => {
         listen: true,
     })
 
-    console.log(data)
     return (
         <>
             <ListWrapper big={big} dense sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
