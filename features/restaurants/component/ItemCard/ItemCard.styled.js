@@ -3,7 +3,7 @@ export const ContentWrapper = styled.div``
 
 export const ItemWrapper = styled.div`
 background-color: ${({ theme }) => theme.colors.white};
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
 width: 240px;
 height: 345px;
 padding: 20px;
@@ -21,12 +21,24 @@ position: relative;
     padding: 12px;
     margin: 0px 4px 30px 4px;
     }
+
+    .desc{
+        display: flex;
+    grid-column-gap: 0.5rem;
+    height: 3.5rem;
+ overflow: hidden;
+ flex-wrap: wrap;
+    }
  
 `
 export const ImgWrapper = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
+
+    img{
+        object-fit: cover;
+    }
     &img{
     @media(max-width:463.9px){
         width: 112px;

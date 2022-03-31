@@ -17,7 +17,7 @@ const ItemCard = ({ data }) => {
                     </ImgWrapper>
                     <ContentWrapper>
                         <Title>{name}</Title>
-                        <Desc>{cuisine[0]}</Desc>
+                        <Desc className='desc'>{cuisine.map((x, i) => <p key={i}>{x}</p>)} </Desc>
                     </ContentWrapper>
                     <AboutItem >
                         <Price>${price} Delivery</Price>

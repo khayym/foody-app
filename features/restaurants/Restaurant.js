@@ -8,12 +8,15 @@ import RestaurantListMobile from './component/RestaurantListMobile';
 import useSWR from 'swr';
 import { useState } from 'react';
 import { useCollection } from 'swr-firestore-v9'
+import { useDispatch, useSelector } from 'react-redux';
 
 const Restaurant = () => {
+    const { categoryName } = useSelector((state) => state.catSet)
 
     const { data } = useCollection('restaurants', {
         orderBy: ['uniqueId', 'asc'],
         listen: true,
+        where: ['category', '==', `${categoryName}`],
     })
 
     console.log(data)
