@@ -1,30 +1,55 @@
 import { ListItem, ListItemButton, ListItemText, ListItemAvatar, Avatar } from '@mui/material';
-import { ListWrapper } from './List.styled'
+import { CustomListItem, CustomListItemText, ListWrapper } from './List.styled'
 import useSWR from 'swr';
+import { useCollection } from 'swr-firestore-v9'
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { categorySetter } from '../../store/slices/category/categorySlice';
+
 
 const List = ({ big }) => {
-    const fetcher = (...args) => fetch(...args).then(res => res.json())
-    const { data, error } = useSWR('https://jsonplaceholder.typicode.com/posts', fetcher)
+    const [hoverIndex, setHoverIndex] = useState("false");
+    const dispatch = useDispatch()
+    const [selectedIndex, setSelectedIndex] = useState(1);
+
+
+    const finder = (name, uniqueId, event, index) => {
+        // selected={selectedIndex === 1}
+        // onClick={(event) => handleListItemClick(event, 1)}
+        setSelectedIndex(index);
+        setHoverIndex("true")
+        dispatch(categorySetter(name))
+    }
+
+    const { data } = useCollection('category', {
+        orderBy: ['uniqueId', 'asc'],
+        listen: true,
+    })
+
+    console.log(data)
     return (
         <>
             <ListWrapper big={big} dense sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-                {data && data.map((value, i) => {
-                    const labelId = `checkbox-list-secondary-label-${value}`;
+                {data && data.map(({ imgUrl, name, uniqueId, slug }, i) => {
+                    const labelId = `checkbox-list-secondary-label-${uniqueId}`;
                     return (
-                        <ListItem
-                            key={i}
+                        <CustomListItem
+                            key={uniqueId}
                             disablePadding
                         >
-                            <ListItemButton>
+                            <ListItemButton onClick={(event) => finder(name, uniqueId, event, i)}
+                                selected={selectedIndex === i}
+
+                            >
                                 <ListItemAvatar>
                                     <Avatar
-                                        alt={`Avatar n°${value + 1}`}
-                                        src={`/images/pizza.jpg/`}
+                                        alt={slug}
+                                        src={imgUrl}
                                     />
                                 </ListItemAvatar>
-                                <ListItemText id={labelId} primary={`Line item ${value.id}`} />
+                                <CustomListItemText id={labelId} primary={name} />
                             </ListItemButton>
-                        </ListItem>
+                        </CustomListItem>
                     );
                 })}
             </ListWrapper>

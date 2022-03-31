@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import { useRouter } from "next/router";
@@ -12,6 +12,7 @@ const CheckoutContainer = dynamic(() => import("../../features/user/checkout"))
 
 const UserPage = () => {
     let { query: { page } } = useRouter()
+
 
     const renderPage = () => {
         let user = {}
