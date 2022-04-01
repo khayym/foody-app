@@ -3,9 +3,15 @@ import UserBasket from '../../../../features/user/basket'
 import { Grid } from '@mantine/core';
 import Image from 'next/image';
 import { CustomGrid, ProductDiv } from './Main.Styled';
-
+import RestaurantListMobile from '../../List/List'
+import ProductListMobile from '../../Swipable';
+import { BasketFooter } from '../../Swipable/Swiple.Styled';
+import { bottomDrawer } from '../../../store/slices/drawer/drawerSlices';
+import { useDispatch } from 'react-redux';
+// import { ProductBottomSlider } from '../../Swipable/Swiple.Styled';
 const ProductContainer = ({ containerJson: { ProductData: { product } } }) => {
     console.log('--', product)
+    const dispatch = useDispatch()
     return (
         <ProductDiv>
             <CustomGrid columns={24} grow style={{ gap: '50px' }}>
@@ -32,11 +38,18 @@ const ProductContainer = ({ containerJson: { ProductData: { product } } }) => {
                             ))
                         }
                     </ul>
+                    <BasketFooter className="basket_footer" onClick={() => dispatch(bottomDrawer())}>
+                        <div>Checkout</div>
+                        <div className="prize">
+                            $37.90
+                        </div>
+                    </BasketFooter>
                 </Grid.Col>
                 <Grid.Col span={8} className={'basket-side'}>
                     <UserBasket />
                 </Grid.Col>
             </CustomGrid>
+            <ProductListMobile />
         </ProductDiv>
     )
 }
