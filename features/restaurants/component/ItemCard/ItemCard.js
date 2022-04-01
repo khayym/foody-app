@@ -7,10 +7,11 @@ const ItemCard = ({ data }) => {
     const { push } = useRouter()
     return (
         <>
-            {data && data.map(({ uniqueId, cuisine, deliverMin, name, price, imgUrl, slug }) => (
-                <ItemWrapper key={uniqueId} onClick={() => push(`/restaurants/restaurant?&name=${name}`)} >
+            {data && data.map(({ uniqueId, cuisine, deliverMin, name, price, imgUrl, id }) => (
+                <ItemWrapper key={uniqueId} onClick={() => push(`/restaurants/restaurant?&name=${name}&id=${id}`)} >
                     <ImgWrapper>
                         {
+
                             imgUrl ? <Image width='174px' height='160px' alt='img' src={imgUrl} /> : <Image width='174px' height='160px' src='/images/pizza.jpg' alt='Pizza' />
                         }
                     </ImgWrapper>
