@@ -7,6 +7,10 @@ width:100%;
 padding:1rem 3.75rem;
 margin-top:1rem;
 
+.sc-caiLqq{
+    display:none;
+}
+
 @media(max-width:756px){
     padding:1rem .5rem 1rem 1.3rem;
 }
@@ -133,7 +137,7 @@ width:60px;
      @media(max-width:1355px){
         max-width:39rem;
     } 
-     @media(max-width:1209px){
+     @media(max-width:1211px){
         max-width:100%;
     } 
     .product-list-item{
@@ -160,7 +164,7 @@ width:60px;
     height:35rem;
     box-shadow: 0px 3px 8px -2px rgba(0, 0, 0, 0.2);
 
-    @media(max-width:1209px){
+    @media(max-width:1211px){
         display:none;
     }
        

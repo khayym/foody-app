@@ -4,21 +4,18 @@ import { Global } from '@emotion/react';
 import { styled } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { grey } from '@mui/material/colors';
-import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import Image from 'next/image';
-import List from '../../../../share/components/List';
-import { RootWrapper, BtnText } from './RestaurantListMobile.styled';
+import { RootWrapper } from '../../../features/restaurants/component/RestaurantListMobile/RestaurantListMobile.styled';
+import { useDispatch, useSelector } from 'react-redux';
+import { bottomDrawer } from '../../store/slices/drawer/drawerSlices';
+// import List from '../../../../share/components/List';
+// import { RootWrapper, BtnText } from './RestaurantListMobile.styled';
 
 const drawerBleeding = 56;
 
-// const Root = styled('div')(({ theme }) => ({
-//     height: '100%',
-//     backgroundColor:
-//         theme.palette.mode === 'light' ? grey[100] : theme.palette.background.default,
-// }));
 
 const StyledBox = styled(Box)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'light' ? '#fff' : grey[800],
@@ -35,13 +32,11 @@ const Puller = styled(Box)(({ theme }) => ({
 }));
 
 
-const RestaurantListMobile = (props) => {
+const ProductListMobile = (props) => {
     const { window } = props;
-    const [open, setOpen] = React.useState(false);
+    const dispatch = useDispatch()
+    const { bottomStatus } = useSelector(state => state.drawer)
 
-    const toggleDrawer = (newOpen) => () => {
-        setOpen(newOpen);
-    };
 
     const container = window !== undefined ? () => window().document.body : undefined;
 
@@ -56,18 +51,12 @@ const RestaurantListMobile = (props) => {
                     },
                 }}
             />
-            <Box sx={{ textAlign: 'center', pt: 1 }}>
-                <Button onClick={toggleDrawer(true)}>
-                    <Image width='20px' height='17px' src="/images/list.svg" alt="List" />
-                    <BtnText>Filters</BtnText>
-                </Button>
-            </Box>
             <SwipeableDrawer
                 container={container}
                 anchor="bottom"
-                open={open}
-                onClose={toggleDrawer(false)}
-                onOpen={toggleDrawer(true)}
+                open={bottomStatus}
+                onClose={() => dispatch(bottomDrawer())}
+                onOpen={() => dispatch(bottomDrawer())}
                 swipeAreaWidth={drawerBleeding}
                 disableSwipeToOpen={false}
                 ModalProps={{
@@ -86,7 +75,7 @@ const RestaurantListMobile = (props) => {
                     }}
                 >
                     <Puller />
-                    <Typography sx={{ p: 2, color: 'text.secondary' }}>X</Typography>
+                    <Typography sx={{ p: 2, color: 'text.secondary' }} onClick={() => dispatch(bottomDrawer())} >X</Typography>
                 </StyledBox>
                 <StyledBox
                     sx={{
@@ -96,15 +85,15 @@ const RestaurantListMobile = (props) => {
                         overflow: 'auto',
                     }}
                 >
-                    <List />
+                    <p>ssssss</p>
                 </StyledBox>
             </SwipeableDrawer>
         </RootWrapper>
     );
 };
-export default RestaurantListMobile;
+export default ProductListMobile;
 
-RestaurantListMobile.propTypes = {
+ProductListMobile.propTypes = {
     /**
      * Injected by the documentation to work in an iframe.
      * You won't need it on your project.
