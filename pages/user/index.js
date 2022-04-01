@@ -13,7 +13,6 @@ const CheckoutContainer = dynamic(() => import("../../features/user/checkout"))
 const UserPage = () => {
     let { query: { page } } = useRouter()
 
-
     const renderPage = () => {
         let user = {}
 

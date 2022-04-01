@@ -1,22 +1,17 @@
 import React from 'react'
-import { collection, getDocs, query, where } from '@firebase/firestore';
+import { collection, doc, getDoc, getDocs, query, where } from '@firebase/firestore';
 import { db } from '../../src/config/firebase'
+import Product from '../../share/components/Porduct';
 
-const Rest = ({ data }) => {
-    console.log(data)
 
+const Rest = ({ data, restById }) => {
+    const ProductData = {
+        product: data,
+        restaurant: restById
+    }
     return (
-        <div>
-            {
-                data && data.map((d) => (
-                    <div key={d.uid}>
-                        <h1>{d.name}</h1>
-                        <p>price: {d.price}</p>
-                        <p>description: {d.description}</p>
-                    </div>
-                ))
-
-            }
+        <div style={{ border: '1px solid red' }}>
+            <Product ProductData={ProductData} />
         </div>
     )
 }
@@ -25,9 +20,11 @@ const Rest = ({ data }) => {
 export default Rest
 
 export async function getServerSideProps(context) {
-    const { name } = context.query;
-    const resdata = await getDocs(query(collection(db, "products"), where('belongRestaurant', "==", name)));
-    const data = resdata.docs.map(doc => {
+    const { name, id } = context.query;
+    const product = await getDocs(query(collection(db, "products"), where('belongRestaurant', "==", name)));
+    const res = await getDoc(doc(db, "restaurants", id));
+    const restById = res.data()
+    const data = product.docs.map(doc => {
         return {
             ...doc.data(),
             uid: doc.id
@@ -36,7 +33,9 @@ export async function getServerSideProps(context) {
 
     return {
         props: {
-            data
+            data, restById
+            // resData
         }
     }
 }
+

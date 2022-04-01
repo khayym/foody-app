@@ -9,6 +9,7 @@ height: 345px;
 padding: 20px;
 margin:0px 0px 30px 36px;
 position: relative;
+transition: transform .5s ease;
     @media(max-width:541.9px){
     width: 200px;
     height: 340px;
@@ -29,6 +30,11 @@ position: relative;
  overflow: hidden;
  flex-wrap: wrap;
     }
+
+    &:hover{
+        transform: scale(1.020);
+        cursor: pointer;
+    }
  
 `
 export const ImgWrapper = styled.div`
@@ -38,12 +44,17 @@ align-items: center;
 
     img{
         object-fit: cover;
+     
     }
     &img{
     @media(max-width:463.9px){
         width: 112px;
         height: 88px;
     }
+    }
+
+    img:hover{
+      
     }
 
 `
