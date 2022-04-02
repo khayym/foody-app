@@ -64,7 +64,7 @@ const UserBasket = () => {
             <BasketFooter className="basket_footer">
                 <div>Checkout</div>
                 <div className="prize">
-                    ${sum.toString().slice(0, 5)}
+                    ${sum?.toString().slice(0, 5)}
                 </div>
             </BasketFooter>
         </BasketContainer>
