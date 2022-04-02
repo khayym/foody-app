@@ -72,6 +72,9 @@ img{
     @media(max-width:900px){
         text-align: center;
     }
+    @media(max-width:575.9px){
+    font-size: 45px;
+    }
 }
 
 .card-text{
