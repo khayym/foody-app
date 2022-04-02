@@ -11,6 +11,7 @@ import Image from 'next/image';
 import { RootWrapper } from '../../../features/restaurants/component/RestaurantListMobile/RestaurantListMobile.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { bottomDrawer } from '../../store/slices/drawer/drawerSlices';
+import UserBasket from '../../../features/user/basket';
 // import List from '../../../../share/components/List';
 // import { RootWrapper, BtnText } from './RestaurantListMobile.styled';
 
@@ -46,7 +47,7 @@ const ProductListMobile = (props) => {
             <Global
                 styles={{
                     '.MuiDrawer-root > .MuiPaper-root': {
-                        height: `calc(50% - ${drawerBleeding}px)`,
+                        height: `calc(70% - ${drawerBleeding}px)`,
                         overflow: 'visible',
                     },
                 }}
@@ -85,7 +86,7 @@ const ProductListMobile = (props) => {
                         overflow: 'auto',
                     }}
                 >
-                    <p>ssssss</p>
+                    <UserBasket />
                 </StyledBox>
             </SwipeableDrawer>
         </RootWrapper>

@@ -60,11 +60,13 @@ overflow:auto;
 .img_conatiner{
         width:96px;
         height:96px;
-
+        border-radius:5px;
         img{
             object-fit: cover;
             width:100%;
             height:100%;
+            border-radius:5px !;
+
         }
     }
 
