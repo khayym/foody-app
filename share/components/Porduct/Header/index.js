@@ -1,9 +1,12 @@
 import React from 'react'
 import Image from 'next/image';
 import { ImageWrapper } from './Header.Styled';
-
+import { useRouter } from 'next/router'
 const ProductHeader = ({ restaurant: { ProductData: { restaurant } } }) => {
-    console.log('ssss', restaurant)
+
+    const { back } = useRouter();
+
+
     return (
         <ImageWrapper>
             <div className='img-div'>
@@ -26,7 +29,7 @@ const ProductHeader = ({ restaurant: { ProductData: { restaurant } } }) => {
 
                     <div className="button-group">
                         <button className="btn-out ownbtns"> <span>${restaurant.price}</span> <span>Delivery</span>  </button>
-                        <button className="btn-filled ownbtns">Go back</button>
+                        <button className="btn-filled ownbtns" onClick={back}>Go back</button>
                     </div>
                 </div>
             </div>

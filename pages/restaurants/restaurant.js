@@ -10,7 +10,7 @@ const Rest = ({ data, restById }) => {
         restaurant: restById
     }
     return (
-        <div style={{ border: '1px solid red' }}>
+        <div>
             <Product ProductData={ProductData} />
         </div>
     )

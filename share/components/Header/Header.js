@@ -19,7 +19,7 @@ export const ResponsiveAppBar = () => {
 
     const dispatch = useDispatch();
     const { user } = useAuth();
-    const { pathname, replace } = useRouter();
+    const { pathname, replace, push } = useRouter();
 
     return (
         <AppBarStyled position="static" className='CustomNavBar' location={pathname}>
@@ -94,7 +94,7 @@ export const ResponsiveAppBar = () => {
                                         size={24}
                                         strokeWidth={2}
                                         color={'#fff'}
-                                        onClick={() => replace('/user?page=basket')}
+                                        onClick={() => push('/user?page=basket')}
                                     />
                                 </Avatar >
                                 <UserMenu />

@@ -4,67 +4,14 @@ import { Divider } from '@mui/material';
 
 
 const Orders = (props) => {
+    let productsData = JSON.parse(localStorage.getItem("basket")) || []
 
-    const elements = [
-        {
-            name: 'Papa John’s Pizza Restaurant',
-            price: '8.6',
-            count: "2"
-        },
-        {
-            name: 'Papa John’s Pizza Restaurant',
-            price: '8.6',
-            count: "2"
-        },
-        {
-            name: 'Papa John’s Pizza Restaurant',
-            price: '8.6',
-            count: "2"
-        },
-        {
-            name: 'Papa John’s Pizza Restaurant',
-            price: '8.6',
-            count: "2"
-        },
-        {
-            name: 'Papa John’s Pizza Restaurant',
-            price: '8.6',
-            count: "2"
-        },
-        {
-            name: 'Papa John’s Pizza Restaurant',
-            price: '8.6',
-            count: "2"
-        },
-        {
-            name: 'Papa Coffee',
-            price: '3.6',
-            count: "1"
-        },
-        {
-            name: 'Coca Cola',
-            price: '8',
-            count: "2"
-        },
-        {
-            name: 'Papa John’s Pizza',
-            price: '4',
-            count: "4"
-        },
-        {
-            name: 'Papa John’s Pizza Restaurant',
-            price: '8.6',
-            count: "2"
-        },
-        {
-            name: 'Papa John’s Pizza Restaurant',
-            price: '8.6',
-            count: "2"
-        },
-    ]
+    const sum = productsData?.reduce((accumulator, object) => {
+        return accumulator + object.totalPrice;
+    }, 0);
 
-    const rows = elements.map((element) => (
-        <tr key={element.name}>
+    const rows = productsData.map((element) => (
+        <tr key={element.productId}>
             <td className='count-element'>{element.count}</td>
             <td className='x-element'>{'x'}</td>
             <td className='name-element'>{element.name}</td>
@@ -85,7 +32,7 @@ const Orders = (props) => {
                 <tbody>
                     <tr className="total">
                         <td>Total</td>
-                        <td>$55.00</td>
+                        <td>${sum?.toString().slice(0, 5)}</td>
                     </tr>
                 </tbody>
             </Tables>

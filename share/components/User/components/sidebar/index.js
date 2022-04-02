@@ -13,8 +13,10 @@ const SidebarUser = () => {
     const { logout } = useAuth();
 
     useEffect(() => {
-        pathname === '/user' && push('/user?page=profile')
+        // pathname === '/user' && push('/user?page=profile')
     }, [pathname])
+
+
 
     return (
         <CustomLinkContainer>

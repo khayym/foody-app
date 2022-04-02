@@ -111,6 +111,7 @@ color:#fff;
 font-size:22px;
 justify-content:space-between;
 margin: 2rem 0;
+cursor:pointer;
 
 .prize{
     background-color:#fff;
