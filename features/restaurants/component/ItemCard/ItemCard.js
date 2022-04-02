@@ -11,8 +11,7 @@ const ItemCard = ({ data }) => {
                 <ItemWrapper key={uniqueId} onClick={() => push(`/restaurants/restaurant?&name=${name}&id=${id}`)} >
                     <ImgWrapper>
                         {
-
-                            imgUrl ? <Image width='174px' height='160px' alt='img' src={imgUrl} /> : <Image width='174px' height='160px' src='/images/pizza.jpg' alt='Pizza' />
+                            Array.isArray(imgUrl) ? <Image width='174px' height='160px' alt='img' src={imgUrl[0]} /> : <Image width='174px' height='160px' src={imgUrl} alt='Pizza' />
                         }
                     </ImgWrapper>
                     <ContentWrapper>

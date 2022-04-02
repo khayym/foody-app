@@ -3,91 +3,68 @@ import { Basket } from 'tabler-icons-react';
 import { Divider } from '@mui/material';
 import DeleteSweepIcon from '@mui/icons-material/DeleteSweep';
 import { BasketContainer, BasketFooter, OrderCount } from './basket.styled';
-
-
+import Image from 'next/image'
+import { useDispatch } from 'react-redux';
+import { fillBasket } from '../../../share/store/slices/basket/basketSlice'
 const UserBasket = () => {
-    const products = [
-        {
-            name: 'Papa Jons Pizza',
-            prize: '15',
-            img: 'https://media.istockphoto.com/photos/delicious-vegetarian-pizza-on-white-picture-id1192094401?k=20&m=1192094401&s=612x612&w=0&h=jesvXuPyvqM36GQ5QEvJrL3QZjK6YKsziUUF3ZbW0gw='
-        },
-        {
-            name: 'MC Burger',
-            prize: '10',
-            img: 'https://media.istockphoto.com/photos/delicious-vegetarian-pizza-on-white-picture-id1192094401?k=20&m=1192094401&s=612x612&w=0&h=jesvXuPyvqM36GQ5QEvJrL3QZjK6YKsziUUF3ZbW0gw='
-        },
-        {
-            name: 'MC Burger',
-            prize: '10',
-            img: 'https://media.istockphoto.com/photos/delicious-vegetarian-pizza-on-white-picture-id1192094401?k=20&m=1192094401&s=612x612&w=0&h=jesvXuPyvqM36GQ5QEvJrL3QZjK6YKsziUUF3ZbW0gw='
-        },
-        {
-            name: 'MC Burger',
-            prize: '10',
-            img: 'https://media.istockphoto.com/photos/delicious-vegetarian-pizza-on-white-picture-id1192094401?k=20&m=1192094401&s=612x612&w=0&h=jesvXuPyvqM36GQ5QEvJrL3QZjK6YKsziUUF3ZbW0gw='
-        },
-        {
-            name: 'MC Burger',
-            prize: '10',
-            img: 'https://media.istockphoto.com/photos/delicious-vegetarian-pizza-on-white-picture-id1192094401?k=20&m=1192094401&s=612x612&w=0&h=jesvXuPyvqM36GQ5QEvJrL3QZjK6YKsziUUF3ZbW0gw='
-        },
-        {
-            name: 'Lavasda Doner',
-            prize: '5',
-            img: 'https://media.istockphoto.com/photos/delicious-vegetarian-pizza-on-white-picture-id1192094401?k=20&m=1192094401&s=612x612&w=0&h=jesvXuPyvqM36GQ5QEvJrL3QZjK6YKsziUUF3ZbW0gw='
-        },
-        {
-            name: 'Lavasda Doner',
-            prize: '5',
-            img: 'https://media.istockphoto.com/photos/delicious-vegetarian-pizza-on-white-picture-id1192094401?k=20&m=1192094401&s=612x612&w=0&h=jesvXuPyvqM36GQ5QEvJrL3QZjK6YKsziUUF3ZbW0gw='
-        },
-        {
-            name: 'Lavasda Doner',
-            prize: '5',
-            img: 'https://media.istockphoto.com/photos/delicious-vegetarian-pizza-on-white-picture-id1192094401?k=20&m=1192094401&s=612x612&w=0&h=jesvXuPyvqM36GQ5QEvJrL3QZjK6YKsziUUF3ZbW0gw='
-        },
-    ]
+
+    const dispatch = useDispatch()
+
+    const basketData = JSON.parse(localStorage.getItem("basket"))
+    const sum = basketData?.reduce((accumulator, object) => {
+        return accumulator + object.totalPrice;
+    }, 0);
+
+    const deleteProductBasket = (id) => {
+        let productsData = JSON.parse(localStorage.getItem("basket")) || []
+        if (productsData.length && productsData.some(product => product.productId === id)) {
+            productsData = productsData.filter(product => product.productId !== id)
+            dispatch(fillBasket(productsData))
+            localStorage.setItem("basket", JSON.stringify(productsData))
+            return
+        }
+    }
+
 
     return (
         <BasketContainer>
             <div>
                 <h1>Your Basket</h1>
-                <div className="user_basket_header"> <Basket size={22} strokeWidth={1.5} /> <div>3 items</div></div>
+                <div className="user_basket_header"> <Basket size={22} strokeWidth={1.5} /> <div>{basketData?.length} items</div></div>
                 <Divider />
             </div>
             <div className="main">
                 {
-                    products.map(product => (
-                        <>
+                    basketData?.map(product => (
+                        <div key={product.productId}>
                             <div className="user_basket_main">
                                 <div className="img_conatiner">
-                                    <img src={product.img} alt="img" />
+                                    <Image src={product?.imgUrl[0]} alt="img" width="96" height="96" />
                                 </div>
                                 <div className='basket_conetent'>
                                     <div>
                                         <h2>{product.name}</h2>
-                                        <h5>${product.prize}</h5>
+                                        <h5>${product.price}</h5>
                                     </div>
                                     <OrderCount>
                                         <div className='order_buttons_group'>
                                             <button>+</button>
-                                            <div>2</div>
+                                            <div>{product.count}</div>
                                             <button>-</button>
                                         </div>
                                     </OrderCount>
                                 </div>
-                                <DeleteSweepIcon className='delete_icon' />
+                                <DeleteSweepIcon className='delete_icon' onClick={() => deleteProductBasket(product.productId)} />
                             </div>
                             <Divider />
-                        </>
+                        </div>
                     ))
                 }
             </div>
             <BasketFooter className="basket_footer">
                 <div>Checkout</div>
                 <div className="prize">
-                    $37.90
+                    ${sum.toString().slice(0, 5)}
                 </div>
             </BasketFooter>
         </BasketContainer>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import UserBasket from '../../../../features/user/basket'
 import { Grid } from '@mantine/core';
 import Image from 'next/image';
@@ -7,11 +7,40 @@ import RestaurantListMobile from '../../List/List'
 import ProductListMobile from '../../Swipable';
 import { BasketFooter } from '../../Swipable/Swiple.Styled';
 import { bottomDrawer } from '../../../store/slices/drawer/drawerSlices';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { fillBasket, addbasket } from '../../../store/slices/basket/basketSlice';
 // import { ProductBottomSlider } from '../../Swipable/Swiple.Styled';
+
 const ProductContainer = ({ containerJson: { ProductData: { product } } }) => {
-    console.log('--', product)
     const dispatch = useDispatch()
+    const basket = useSelector(state => state.basket.basket)
+    const increment = (data) => {
+        let productInBasket = basket?.find(item => item.productId === data.productId)
+        let productsData = JSON.parse(localStorage.getItem("basket")) || []
+        let totalPrice = (productInBasket?.count || 1) * data.price
+
+
+        if (productsData.length && productsData.some(product => product.productId === data.productId)) {
+            productsData.map(product => {
+                if (product.productId === data.productId) {
+                    product.count += 1
+                    product.totalPrice = totalPrice
+                }
+                return product
+            })
+
+            dispatch(fillBasket(productsData))
+            localStorage.setItem("basket", JSON.stringify(productsData))
+            return
+        }
+
+        let product = { ...data, count: 1, totalPrice: data.price }
+
+        dispatch(addbasket(product))
+        localStorage.setItem("basket",
+            JSON.stringify([...productsData, product]))
+    }
+
     return (
         <ProductDiv>
             <CustomGrid columns={24} grow style={{ gap: '50px' }}>
@@ -31,8 +60,8 @@ const ProductContainer = ({ containerJson: { ProductData: { product } } }) => {
                                         </div>
                                     </div>
                                     <div className='item-price'>
-                                        <p> <span>From</span>  ${item.price}</p>
-                                        <button>+</button>
+                                        <p><span>From</span>  ${item.price}</p>
+                                        <button onClick={() => increment(item)}>+</button>
                                     </div>
                                 </li>
                             ))
