@@ -6,8 +6,11 @@ import { BasketContainer, BasketFooter, OrderCount } from './basket.styled';
 import Image from 'next/image'
 import { useDispatch } from 'react-redux';
 import { fillBasket } from '../../../share/store/slices/basket/basketSlice'
-const UserBasket = () => {
+import { useRouter } from 'next/router'
 
+
+const UserBasket = () => {
+    const { push } = useRouter()
     const dispatch = useDispatch()
 
     const basketData = JSON.parse(localStorage.getItem("basket"))
@@ -61,7 +64,7 @@ const UserBasket = () => {
                     ))
                 }
             </div>
-            <BasketFooter className="basket_footer">
+            <BasketFooter className="basket_footer" onClick={() => push('/user?page=checkout')}>
                 <div>Checkout</div>
                 <div className="prize">
                     ${sum?.toString().slice(0, 5)}
