@@ -2,11 +2,13 @@ import { ItemWrapper, ImgWrapper, ContentWrapper, Title, AboutItem, Desc, Price 
 import Image from 'next/image';
 import { ButtonWrap } from '../../../../share/components/Button/Button.styled';
 import { useRouter } from 'next/router';
+// import { LoadingOverlay } from '@mantine/core';
 
 const ItemCard = ({ data }) => {
     const { push } = useRouter()
     return (
         <>
+            {/* <LoadingOverlay visible={true} style={{ height: 'auto' }} /> */}
             {data && data.map(({ uniqueId, cuisine, deliverMin, name, price, imgUrl, id }) => (
                 <ItemWrapper key={uniqueId} onClick={() => push(`/restaurants/restaurant?&name=${name}&id=${id}`)} >
                     <ImgWrapper>

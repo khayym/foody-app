@@ -1,5 +1,7 @@
 import styled from 'styled-components';
-export const ContentWrapper = styled.div``
+export const ContentWrapper = styled.div`
+max-height:100px;
+`
 
 export const ItemWrapper = styled.div`
 background-color: ${({ theme }) => theme.colors.white};
@@ -10,25 +12,35 @@ padding: 20px;
 margin:0px 0px 30px 36px;
 position: relative;
 transition: transform .5s ease;
+display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+
     @media(max-width:541.9px){
     width: 200px;
     height: 340px;
     padding: 12px;
     margin: 0px 3px 30px 3px;
     }
+
     @media(max-width:463.9px){
-    width: 130px;
-    height: 250px;
+    width: 180px;
+    height: 300px;
     padding: 12px;
     margin: 0px 4px 30px 4px;
     }
 
     .desc{
-        display: flex;
+    display: flex;
     grid-column-gap: 0.5rem;
-    height: 3.5rem;
- overflow: hidden;
- flex-wrap: wrap;
+    /* height: 3.5rem; */
+    overflow: hidden;
+    flex-wrap: wrap;
+
+    p{
+        margin:0;
+    }
     }
 
     &:hover{
