@@ -44,7 +44,7 @@ display: flex;
     flex-wrap: wrap !important;
 
     p{
-        margin:0 !important;
+        margin:.2rem 0 !important;
     }
     }
 
