@@ -32,14 +32,14 @@ display: flex;
     }
 
     .desc{
-    display: flex;
-    grid-column-gap: 0.5rem;
+    display: flex !important;
+    grid-column-gap: 0.5rem !important;
     /* height: 3.5rem; */
-    overflow: hidden;
-    flex-wrap: wrap;
+    overflow: hidden !important;
+    flex-wrap: wrap !important;
 
     p{
-        margin:0;
+        margin:0 !important;
     }
     }
 
