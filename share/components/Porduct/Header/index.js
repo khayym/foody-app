@@ -6,11 +6,10 @@ const ProductHeader = ({ restaurant: { ProductData: { restaurant } } }) => {
 
     const { back } = useRouter();
 
-
     return (
         <ImageWrapper>
             <div className='img-div'>
-                <Image src={restaurant.imgUrl} alt={restaurant.slug} layout='fill' objectFit='cover' />
+                <Image src={restaurant?.imgUrl[0]} alt={restaurant.slug} layout='fill' objectFit='cover' />
             </div>
             <div className='information-container'>
                 <div className='header-info'>
