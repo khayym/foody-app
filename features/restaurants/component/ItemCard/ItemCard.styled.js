@@ -38,14 +38,13 @@ display: flex;
     }
 
     .desc{
-    display: flex;
-    grid-column-gap: 0.5rem;
-    /* height: 3.5rem; */
-    overflow: hidden;
-    flex-wrap: wrap;
+    display: flex !important;
+    grid-column-gap: 0.5rem !important;
+    overflow: hidden !important;
+    flex-wrap: wrap !important;
 
     p{
-        margin:0;
+        margin:.2rem 0 !important;
     }
     }
 
