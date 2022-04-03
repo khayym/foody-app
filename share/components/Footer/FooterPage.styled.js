@@ -35,6 +35,10 @@ font-weight: 800;
 font-size: 28px;
 color: ${({ theme }) => theme.colors.white};
 line-height: 24px;
+@media(max-width:575.9px){
+    margin-top: 50px;
+    text-align: center;
+}
 `
 
 export const SosialNetwork = styled.div`
