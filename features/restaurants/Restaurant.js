@@ -9,6 +9,7 @@ import useSWR from 'swr';
 import { useState } from 'react';
 import { useCollection } from 'swr-firestore-v9'
 import { useDispatch, useSelector } from 'react-redux';
+import { LoadingOverlay } from '@mantine/core';
 
 const Restaurant = () => {
     const { categoryName } = useSelector((state) => state.catSet)
