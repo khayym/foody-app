@@ -9,7 +9,7 @@ const ItemCard = ({ data }) => {
     return (
         <>
             {/* <LoadingOverlay visible={true} style={{ height: 'auto' }} /> */}
-            {data && data.map(({ uniqueId, cuisine, deliverMin, name, price, imgUrl, id }) => (
+            {data && data.map(({ uniqueId, cuisine, deliverMin, name, deliverPrice, imgUrl, id }) => (
                 <ItemWrapper key={uniqueId} onClick={() => push(`/restaurants/restaurant?&name=${name}&id=${id}`)} >
                     <ImgWrapper>
                         {
@@ -21,7 +21,7 @@ const ItemCard = ({ data }) => {
                         <Desc className='desc'>{cuisine.map((x, i) => <SpanWrap key={i}>{x}</SpanWrap>)} </Desc>
                     </ContentWrapper>
                     <AboutItem >
-                        <Price>${price} Delivery</Price>
+                        <Price>${deliverPrice} Delivery</Price>
                         <ButtonWrap>{deliverMin} Min</ButtonWrap>
                     </AboutItem>
                 </ItemWrapper>
