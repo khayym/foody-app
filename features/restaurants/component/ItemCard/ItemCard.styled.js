@@ -40,8 +40,6 @@ display: flex;
     .desc{
     display: flex !important;
     grid-column-gap: 0.5rem !important;
-    /* height: 3.5rem; */
-    /* height: 3.5rem; */
     overflow: hidden !important;
     flex-wrap: wrap !important;
 
