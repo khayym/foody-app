@@ -3,6 +3,12 @@ export const ContentWrapper = styled.div`
 max-height:100px;
 `
 
+
+export const SpanWrap = styled.p`
+line-height: 11px;
+margin: 0;
+`
+
 export const ItemWrapper = styled.div`
 background-color: ${({ theme }) => theme.colors.white};
 box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
@@ -56,17 +62,12 @@ align-items: center;
 
     img{
         object-fit: cover;
-     
     }
     &img{
     @media(max-width:463.9px){
         width: 112px;
         height: 88px;
     }
-    }
-
-    img:hover{
-      
     }
 
 `
@@ -92,7 +93,8 @@ font-size: 22px;
 color: ${({ theme }) => theme.colors.grayText2};
 margin: 7px 0px 3px 0px;
     @media(max-width:463.9px){
-    font-size: 16px;
+    font-size: 14px;
+    margin: 3px 0px;
     }
 `
 export const Desc = styled.p`
@@ -119,6 +121,15 @@ justify-content: space-between;
         padding: 2px 23px !important;
     }
     }
+
+    @media(max-width:463.9px){
+        button.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeMedium.MuiButton-containedSizeMedium.MuiButtonBase-root.sc-bqiRlB.dVFtPK.css-sghohy-MuiButtonBase-root-MuiButton-root{
+    width: 109.62px;
+    height: 19.27px;
+    border-radius: 30px;
+    }
+    }
+ 
 `
 
 export const Price = styled.p`

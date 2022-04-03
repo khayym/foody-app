@@ -1,4 +1,4 @@
-import { ItemWrapper, ImgWrapper, ContentWrapper, Title, AboutItem, Desc, Price } from './ItemCard.styled'
+import { ItemWrapper, ImgWrapper, ContentWrapper, Title, AboutItem, Desc, Price, SpanWrap } from './ItemCard.styled'
 import Image from 'next/image';
 import { ButtonWrap } from '../../../../share/components/Button/Button.styled';
 import { useRouter } from 'next/router';
@@ -18,7 +18,7 @@ const ItemCard = ({ data }) => {
                     </ImgWrapper>
                     <ContentWrapper>
                         <Title>{name}</Title>
-                        <Desc className='desc'>{cuisine.map((x, i) => <p key={i}>{x}</p>)} </Desc>
+                        <Desc className='desc'>{cuisine.map((x, i) => <SpanWrap key={i}>{x}</SpanWrap>)} </Desc>
                     </ContentWrapper>
                     <AboutItem >
                         <Price>${price} Delivery</Price>
