@@ -8,19 +8,17 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Tables from './components/Tables/index'
-function createData(name, calories, fat, carbs, protein) {
-    return { name, calories, fat, carbs, protein };
-}
+import { useCollection } from 'swr-firestore-v9';
+import { useAuth } from '../../../src/context/AuthContext';
 
-const rows = [
-    createData(1, 159, 6.0, 24, 4.0),
-    createData(2, 237, 9.0, 37, 4.3),
-    createData(3, 262, 16.0, 24, 6.0),
-    createData(4, 305, 3.7, 67, 4.3),
-    createData(5, 356, 16.0, 49, 3.9),
-];
 
 const UserOrder = () => {
+    const { user } = useAuth();
+    const { data } = useCollection('orders', {
+        listen: true,
+        where: ['uid', '==', `${user.uid}`],
+    })
+
     return (
         <OrderContainer>
             <h1>Your Orders</h1>
@@ -38,23 +36,23 @@ const UserOrder = () => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {rows.map((row) => (
+                        {data?.map((row) => (
                             <TableRow
-                                key={row.name}
+                                key={row.key}
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell component="th" scope="row">
-                                    {row.name}
+                                    {row.displayName}
                                 </TableCell>
-                                <TableCell align="right">{row.calories}</TableCell>
-                                <TableCell align="right">{row.fat}</TableCell>
-                                <TableCell align="right">{row.carbs}</TableCell>
-                                <TableCell align="right">{row.protein}</TableCell>
+                                <TableCell align="right">{row.date}</TableCell>
+                                <TableCell align="right">{row.address}</TableCell>
+                                <TableCell align="right">22</TableCell>
+                                <TableCell align="right">{row.payment}</TableCell>
                                 <TableCell align="right">
-                                    {row.protein}
+                                    {row.number}
                                 </TableCell>
                                 <TableCell align="right">
-                                    <Tables />
+                                    <Tables products={row.productsData} />
                                 </TableCell>
                             </TableRow>
                         ))}
