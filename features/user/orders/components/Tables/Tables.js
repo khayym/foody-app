@@ -2,12 +2,11 @@ import * as React from 'react';
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { DataModalDelete } from '../DataModalDelete/DataModalDelete';
 import DataModalTable from '../DataModalTable';
 
 
 const ITEM_HEIGHT = 48;
-const Tables = () => {
+const Tables = ({ products }) => {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -16,6 +15,7 @@ const Tables = () => {
     const handleClose = () => {
         setAnchorEl(null);
     };
+
     return (
         <div>
             <IconButton
@@ -43,8 +43,8 @@ const Tables = () => {
                     },
                 }}
             >
-                <DataModalTable/>
-                <DataModalDelete />
+                <DataModalTable products={products} />
+                {/* <DataModalDelete /> */}
             </Menu>
         </div>
     );
