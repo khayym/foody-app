@@ -27,10 +27,6 @@ const UserBasket = () => {
         }
     }
 
-    // useEffect(() => {
-    //     console.log('isledi')
-    // }, [basketData?.length])
-
 
     return (
         <BasketContainer>
@@ -39,9 +35,9 @@ const UserBasket = () => {
                 <div className="user_basket_header"> <Basket size={22} strokeWidth={1.5} /> <div>{basketData?.length} items</div></div>
                 <Divider />
             </div>
-            <div className="main">
+            <div className="main" style={{ display: 'flex', flexDirection: 'column' }}>
                 {
-                    basketData?.map(product => (
+                    basketData && basketData?.map(product => (
                         <div key={product.productId}>
                             <div className="user_basket_main">
                                 <div className="img_conatiner">
@@ -65,6 +61,12 @@ const UserBasket = () => {
                             <Divider />
                         </div>
                     ))
+                }
+
+                {
+                    basketData?.length === 0 && <div style={{ margin: '0 auto' }}>
+                        <Image src='/images/empty.svg' alt='emty' height='280' width='200' />
+                    </div>
                 }
             </div>
             <BasketFooter className="basket_footer" onClick={() => push('/user?page=checkout')}>
