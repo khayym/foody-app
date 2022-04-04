@@ -13,7 +13,7 @@ import { LoadingOverlay } from '@mantine/core';
 
 const Restaurant = () => {
     const { categoryName } = useSelector((state) => state.catSet)
-
+    const [visible, setVisible] = useState(false)
     const { data } = useCollection('restaurants', {
         orderBy: ['uniqueId', 'asc'],
         listen: true,
@@ -30,7 +30,6 @@ const Restaurant = () => {
         setPage(value);
     };
 
-
     return (
         <>
             <Head>
@@ -42,14 +41,21 @@ const Restaurant = () => {
                     <Grid lg={2} md={3} sm={12}>
                         <RestaurantList />
                     </Grid>
-
                     <Grid lg={10} md={9} sm={12}>
-                        <RestaurantListMobile />
-                        <ItemCardWrapper>
-                            <ItemCard data={currentPosts} />
-                        </ItemCardWrapper>
-                        <Paginations postsPerPage={last_page} page={page} handleChange={handleChange} />
+                        {
+                            !data ? (
+                                <LoadingOverlay visible={true} overlayOpacity={0} />
+                            ) : <>
+                                <RestaurantListMobile />
+                                <ItemCardWrapper>
+                                    <ItemCard data={currentPosts} />
+                                </ItemCardWrapper>
+                                <Paginations postsPerPage={last_page} page={page} handleChange={handleChange} />
+                            </>
+
+                        }
                     </Grid>
+
                 </Grid>
             </Containers>
         </>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Basket } from 'tabler-icons-react';
 import { Divider } from '@mui/material';
 import DeleteSweepIcon from '@mui/icons-material/DeleteSweep';
@@ -12,7 +12,6 @@ import { useRouter } from 'next/router'
 const UserBasket = () => {
     const { push } = useRouter()
     const dispatch = useDispatch()
-
     const basketData = JSON.parse(localStorage.getItem("basket"))
     const sum = basketData?.reduce((accumulator, object) => {
         return accumulator + object.totalPrice;
@@ -27,6 +26,10 @@ const UserBasket = () => {
             return
         }
     }
+
+    // useEffect(() => {
+    //     console.log('isledi')
+    // }, [basketData?.length])
 
 
     return (

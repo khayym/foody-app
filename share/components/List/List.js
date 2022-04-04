@@ -10,7 +10,7 @@ import { categorySetter } from '../../store/slices/category/categorySlice';
 const List = ({ big }) => {
     const [hoverIndex, setHoverIndex] = useState("false");
     const dispatch = useDispatch()
-    const [selectedIndex, setSelectedIndex] = useState(1);
+    const [selectedIndex, setSelectedIndex] = useState(0);
 
 
     const finder = (name, uniqueId, event, index) => {
@@ -37,9 +37,7 @@ const List = ({ big }) => {
                             disablePadding
                         >
                             <ListItemButton onClick={(event) => finder(name, uniqueId, event, i)}
-                                selected={selectedIndex === i}
-
-                            >
+                                selected={selectedIndex === i}>
                                 <ListItemAvatar>
                                     <Avatar
                                         alt={slug}
