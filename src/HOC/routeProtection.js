@@ -1,6 +1,7 @@
 import { useAuth } from "../context/AuthContext";
 import { useRouter } from 'next/router';
 import { useEffect } from "react";
+import { LoadingOverlay } from "@mantine/core";
 
 export const withPublic = (WrappedComponent) => {
     return (props) => {
@@ -15,7 +16,7 @@ export const withPublic = (WrappedComponent) => {
         }, [user, router]);
 
         if (user || loading) {
-            return (<h1>Loading here!</h1>)// full-screen loader here
+            return (<LoadingOverlay visible={true} />)// full-screen loader here
         }
 
         return (<WrappedComponent {...props} />)
@@ -38,7 +39,7 @@ export const withProtected = (WrappedComponent) => {
         }, [user, router]);
 
         if (!user || loading) {
-            return <h1>Loading here!</h1>; // full-screen loader here
+            return <LoadingOverlay visible={true} />; // full-screen loader here
         }
 
         return <WrappedComponent {...props} />;
